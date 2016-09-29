@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:mp="http://primefaces.org/ui/material">
+	
+	<h:head>
+		<meta charset="utf-8" />
+		<title>Proyecto Empresarial</title>
+		<meta name="author" content="Jhon Angel Cruzado Rivera" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'/>
+        <link href="#{request.contextPath}/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
+        <link href="#{request.contextPath}/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
+        <link href="#{request.contextPath}/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="#{request.contextPath}/assets/css/modern.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css"/>
+        
+        <script src="#{request.contextPath}/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+        <link href="#{request.contextPath}/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+	</h:head>
+
+	<h:body styleClass="fixed-left">
+				
+		<div class="page-content content-wrap">
+				
+			<!-- Encabezado -->
+			<ui:include src="/templates/header.xhtml" />
+			<!-- Fin Encabezado -->
+				
+			<!-- Menu -->
+			<ui:include src="/templates/menu.xhtml" />
+			<!-- Fin Menu -->
+				
+			<!-- Contenido -->
+			<div class="page-inner">
+				<ui:insert name="content" />
+			</div>
+			<!-- Fin Contenido -->
+			
+		</div>
+		
+        <pe:blockUI widgetVar="bUI">
+			<div class="card-box">
+				<div class="widget-chart text-center">
+					<div style="display: inline; width: 100px; height: 100px;">
+						<h:graphicImage value="assets/images/loading.gif"
+ 								width="80" height="80" />
+					</div>
+					<h5 class="text-muted m-t-20" >PROCESANDO</h5>
+				</div>
+			</div>
+		</pe:blockUI>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+			closeOnEscape="true" responsive="true" styleClass="card-box" closable="false">
+			<p:commandButton value="SI"
+				style="background-color: #5fbeaa; color:white;background-image:none;
+					   border-style:none;"
+				styleClass="btn btn-default waves-effect waves-light ui-confirmdialog-yes" />
+			<p:commandButton value="NO"
+				style="background-color: #5fbeaa; color:white;background-image:none;
+					   border-style:none;"
+				styleClass="btn btn-default waves-effect waves-light ui-confirmdialog-no" />
+		</p:confirmDialog>
+		
+		<div id="status"
+			style="width: 50px; height: 50px; position: fixed; right: 5px; bottom: 5px;">
+			<p:ajaxStatus>
+				<f:facet name="start">
+					<h:graphicImage value="assets/images/loading.gif"
+ 								width="50" height="50" />
+				</f:facet>
+			</p:ajaxStatus>
+		</div>
+        
+<!--         <script src="#{request.contextPath}/assets/plugins/jquery/jquery-2.1.4.min.js"></script> -->
+<!--         <script src="#{request.contextPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->
+        <script src="#{request.contextPath}/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/pace-master/pace.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/uniform/jquery.uniform.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/3d-bold-navigation/js/main.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/summernote-master/summernote.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script src="#{request.contextPath}/assets/js/modern.min.js"></script>
+        <script src="#{request.contextPath}/assets/js/pages/form-elements.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/notifyjs/js/notify.js"></script>
+        <script src="#{request.contextPath}/assets/plugins/notifications/notify-metro.js"></script>
+        <script src="#{request.contextPath}/assets/js/jquery.core.js"></script>
+		
+	</h:body>
+
+</ui:composition>

@@ -1,0 +1,176 @@
+.page-content {
+    background: #34425A;
+}
+
+.navbar .logo-box {
+    background: #22baa0;
+}
+
+.navbar .logo-box a {
+    color: #fff;
+}
+
+.sidebar {
+    background: #34425A;
+}
+
+.sidebar-header {
+    background: #34425A;
+}
+
+.sidebar-profile span small {
+    color: #899dc1;
+}
+
+.menu {
+    background: #34425A;
+}
+
+.menu.accordion-menu a {
+    color: #899dc1;
+}
+
+.menu.accordion-menu > li > a:hover {
+	background: #2b384e;
+    color: #fff;
+}
+
+.menu.accordion-menu > li.active > a,
+.menu.accordion-menu > li.active.open > a {
+	background: #2b384e;
+    color: #fff;
+}
+
+.small-sidebar:not(.page-sidebar-fixed) .accordion-menu li.droplink:hover > a,
+.horizontal-bar .accordion-menu > li.droplink:hover > a,
+.menu.accordion-menu ul,
+.menu.accordion-menu li.open > a,
+.hover-menu .accordion-menu > li.droplink:hover > a {
+    background: #2B384E;
+    color: #fff;
+}
+
+.menu.accordion-menu ul li a:hover,
+.menu.accordion-menu ul li.active a {
+	background: #34425A;
+    color: #fff;
+}
+
+.menu.accordion-menu ul li a {
+    color: #899dc1;
+}
+
+/* =============
+   Notification
+============= */
+.notifyjs-metro-base {
+  position: relative;
+  min-height: 52px;
+  min-width: 250px;
+  color: #444;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  -webkit-animation: dropdownOpen 0.3s ease-out;
+  -o-animation: dropdownOpen 0.3s ease-out;
+  animation: dropdownOpen 0.3s ease-out;
+}
+.notifyjs-metro-base .image {
+  display: table;
+  position: absolute;
+  height: auto;
+  width: auto;
+  left: 25px;
+  top: 50%;
+  font-size: 24px;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.notifyjs-metro-base .text-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin: 10px 10px 10px 52px;
+  clear: both;
+}
+.notifyjs-metro-base .title {
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.notifyjs-metro-base .text {
+  font-size: 12px;
+  font-weight: normal;
+  max-width: 360px;
+  vertical-align: middle;
+}
+.notifyjs-metro-cool {
+  color: #fafafa !important;
+  background-color: #4A525F;
+  border: 1px solid #4A525F;
+}
+
+/* =============
+   Growl Primefaces
+============= */
+.ui-growl-item-container {
+	color: #fafafa !important;
+	background-color: #f05050;
+	border: 1px solid #ef5350;
+	background-image: none;
+	opacity: 1;
+}
+
+.ui-growl {
+	position: fixed;
+	top: 9px;
+	right: 10px;
+	width: auto;
+	height: auto;
+	z-index: 9999;
+}
+
+.ui-growl-item {
+	padding-bottom: 0px;
+}
+
+.ui-growl-message {
+	width: auto;
+	float: left;
+}
+
+.ui-growl-title {
+	font-size: 12px;
+	font-weight: normal;
+	vertical-align: middle;
+	clear: both;
+	margin-top: 10px;
+	color: white;
+}
+
+.ui-growl-image {
+	background: none;
+	background-image: none;
+}
+
+.ui-growl-image:before {
+	content: "\f12a";
+	font-family: FontAwesome;
+	font-size: 2em;
+}
+
+.ui-widget {
+	font-size: 12px;
+	font-weight: normal;
+	max-width: 360px;
+	vertical-align: middle;
+}
+
+.ui-growl-image-error {
+	margin-top: 0px;
+	padding-left: 5px;
+}

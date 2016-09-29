@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Usuario Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.Usuario" name="Usuario">
+        <table name="usuario"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <basic name="nombres">
+                <column name="nombres" />
+            </basic>
+           	<basic name="apellidoPaterno">
+           		<column name="apellidoPaterno" />
+           	</basic>
+           	<many-to-one name="tipodocumento">
+           		<join-column name="idTipoDocumento" referenced-column-name="idTipoDocumento" />
+           	</many-to-one>
+           	<many-to-one name="rol">
+           		<join-column name="idRol" referenced-column-name="idRol" />
+           	</many-to-one>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.UsuarioPK">
+   		<attributes>
+   			<basic name="idUsuario">
+   				<column name="idUsuario"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>
