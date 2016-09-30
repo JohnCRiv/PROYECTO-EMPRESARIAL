@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Rol Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.Rol" name="Rol">
+        <table name="rol"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <basic name="rol">
+                <column name="rol" />
+            </basic>
+            <one-to-many name="usuarios">
+            	<join-table name="usuario">
+            		<join-column name="idRol" referenced-column-name="idRol" />
+            	</join-table>
+            </one-to-many>
+            <one-to-many name="rolenlace">
+            	<join-table name="rol_enlace">
+            		<join-column name="idRol" referenced-column-name="idRol" />
+            	</join-table>
+            </one-to-many>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.RolPK">
+   		<attributes>
+   			<basic name="idRol">
+   				<column name="idRol"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>

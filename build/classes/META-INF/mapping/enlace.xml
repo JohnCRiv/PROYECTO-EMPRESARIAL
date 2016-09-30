@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Enlace Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.Enlace" name="Enlace">
+        <table name="enlace"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <basic name="descripcion">
+                <column name="descripcion" />
+            </basic>
+            <basic name="ruta">
+                <column name="ruta" />
+            </basic>
+            <basic name="icono">
+                <column name="icono" />
+            </basic>
+            <one-to-many name="rolenlace">
+            	<join-table name="rol_enlace">
+            		<join-column name="idEnlace" referenced-column-name="idEnlace" />
+            	</join-table>
+            </one-to-many>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.EnlacePK">
+   		<attributes>
+   			<basic name="idEnlace">
+   				<column name="idEnlace"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>
