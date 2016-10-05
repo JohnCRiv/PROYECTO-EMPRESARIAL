@@ -22,16 +22,16 @@
             </basic>
             <one-to-many name="rolenlace">
             	<join-table name="rol_enlace">
-            		<join-column name="idEnlace" referenced-column-name="idEnlace" />
+            		<join-column name="idenlace" referenced-column-name="idenlace" />
             	</join-table>
             </one-to-many>
         </attributes>
    </entity>
    
-   <embeddable class="bean.EnlacePK">
+   <embeddable class="bean.pk.EnlacePK">
    		<attributes>
-   			<basic name="idEnlace">
-   				<column name="idEnlace"/>
+   			<basic name="idenlace">
+   				<column name="idenlace"/>
    			</basic>
    		</attributes>
    </embeddable>

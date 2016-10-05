@@ -5,7 +5,7 @@ import dao.EnlaceDao;
 import generico.GenericoDaoImpl;
 
 public class EnlaceDaoImpl extends GenericoDaoImpl<Enlace> implements EnlaceDao {
-
+	
 	
 	
 }

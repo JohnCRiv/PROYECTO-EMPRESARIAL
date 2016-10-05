@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+
+	<description>Curso Mapping</description>
+	<package>bean</package>
+
+	<entity class="bean.Curso" name="Curso">
+		<table name="curso" />
+		<attributes>
+			<embedded-id name="pk" />
+			<basic name="descripcion">
+				<column name="descripcion" />
+			</basic>
+			<one-to-many name="alumnocurso">
+				<join-table name="alumno_curso">
+					<join-column name="idcurso" referenced-column-name="idcurso" />
+				</join-table>
+			</one-to-many>
+			<one-to-many name="cursoexamen">
+				<join-table name="curso_examen">
+					<join-column name="idcurso" referenced-column-name="idcurso" />
+				</join-table>
+			</one-to-many>
+			<one-to-many name="cursopregunta">
+				<join-table name="curso_pregunta">
+					<join-column name="idcurso" referenced-column-name="idcurso" />
+				</join-table>
+			</one-to-many>
+		</attributes>
+	</entity>
+
+	<embeddable class="bean.pk.CursoPK">
+		<attributes>
+			<basic name="idcurso">
+				<column name="idcurso" />
+			</basic>
+		</attributes>
+	</embeddable>
+
+</entity-mappings>

@@ -2,6 +2,8 @@ package bean;
 
 import java.util.List;
 
+import bean.pk.RolPK;
+
 public class Rol {
 	
 	private RolPK pk;

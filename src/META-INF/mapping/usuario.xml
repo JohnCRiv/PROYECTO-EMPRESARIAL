@@ -14,22 +14,28 @@
             <basic name="nombres">
                 <column name="nombres" />
             </basic>
-           	<basic name="apellidoPaterno">
-           		<column name="apellidoPaterno" />
+           	<basic name="apellidopaterno">
+           		<column name="apellidopaterno" />
            	</basic>
-           	<many-to-one name="tipodocumento">
-           		<join-column name="idTipoDocumento" referenced-column-name="idTipoDocumento" />
-           	</many-to-one>
+           	<basic name="apellidomaterno">
+           		<column name="apellidomaterno" />
+           	</basic>
+           	<basic name="usuario">
+           		<column name="usuario" />
+           	</basic>
+           	<basic name="clave">
+           		<column name="clave" />
+           	</basic>
            	<many-to-one name="rol">
-           		<join-column name="idRol" referenced-column-name="idRol" />
+           		<join-column name="idrol" referenced-column-name="idrol" />
            	</many-to-one>
         </attributes>
    </entity>
    
-   <embeddable class="bean.UsuarioPK">
+   <embeddable class="bean.pk.UsuarioPK">
    		<attributes>
-   			<basic name="idUsuario">
-   				<column name="idUsuario"/>
+   			<basic name="idusuario">
+   				<column name="idusuario"/>
    			</basic>
    		</attributes>
    </embeddable>

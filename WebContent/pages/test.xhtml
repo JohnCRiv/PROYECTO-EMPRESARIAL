@@ -38,36 +38,26 @@
 												<div class="form-group">
 													<label class="col-md-2 control-label" for="example-email">Nombres</label>
 													<div class="col-md-10">
-														<mp:input value="#{pruebaController.usuario.nombres}"
-														 required="true" requiredMessage="El campo Nombre es obligatorio." />
+														<mp:input required="true" requiredMessage="Ingrese un nombre" />
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-2 control-label" for="example-email">Apellido Paterno</label>
 													<div class="col-md-10">
-														<mp:input value="#{pruebaController.usuario.apellidoPaterno}"
-														 required="true" requiredMessage="El campo Apellido Paterno es obligatorio."/>
+														<mp:input />
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-2 control-label">Rol</label>
 													<div class="col-md-10">
-														<mp:selectOne value="#{pruebaController.usuario.rol.pk.idRol}">
-															<f:selectItem itemLabel="Seleccionar" itemValue="" />
-															<f:selectItems value="#{pruebaController.listaRol}" var="var" 
-																itemLabel="#{var.rol}" itemValue="#{var.pk.idRol}" />
-														</mp:selectOne>
+														<mp:input />
 													</div>
 												</div>
 				
 												<div class="form-group">
 													<label class="col-md-2 control-label">Tipo de Doc.</label>
 													<div class="col-md-10">
-														<mp:selectOne value="#{pruebaController.usuario.tipodocumento.pk.idTipoDocumento}">
-															<f:selectItem itemLabel="Seleccionar" itemValue="" />
-															<f:selectItems value="#{pruebaController.listaDocumentos}" var="var"
-																itemLabel="#{var.documento}" itemValue="#{var.pk.idTipoDocumento}" />
-														</mp:selectOne>
+														<mp:input />
 													</div>
 												</div>
 												<div class="form-group">

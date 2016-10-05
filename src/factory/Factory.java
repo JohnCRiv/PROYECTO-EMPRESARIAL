@@ -1,9 +1,19 @@
 package factory;
 
+import dao.AlumnoCursoDao;
+import dao.AlumnoDao;
+import dao.AlumnoExamenDao;
+import dao.AlumnoRespuestaDao;
+import dao.CursoDao;
+import dao.CursoExamenDao;
+import dao.CursoPreguntaDao;
 import dao.EnlaceDao;
+import dao.ExamenDao;
+import dao.ExamenPreguntaDao;
+import dao.PreguntaDao;
+import dao.PreguntaOpcionDao;
 import dao.RolDao;
 import dao.RolEnlaceDao;
-import dao.TipoDocumentoDao;
 import dao.UsuarioDao;
 
 /**
@@ -19,12 +29,22 @@ public abstract class Factory {
 	public static final String SQLSERVER = "SQLSERVER";
 	public static final String ORACLE = "ORACLE";
 	
-	public abstract TipoDocumentoDao getTipoDocumentoDAO();
+	public abstract AlumnoDao getAlumnoDAO();
+	public abstract CursoDao getCursoDAO();
+	public abstract AlumnoCursoDao getAlumnoCursoDAO();
+	public abstract ExamenDao getExamenDAO();
+	public abstract CursoExamenDao getCursoExamenDAO();
+	public abstract AlumnoExamenDao getAlumnoExamenDAO();
+	public abstract PreguntaDao getPreguntaDAO();
+	public abstract CursoPreguntaDao getCursoPreguntaDAO();
+	public abstract ExamenPreguntaDao getExamenPreguntaDAO();
+	public abstract PreguntaOpcionDao getPreguntaOpcionDAO();
+	public abstract AlumnoRespuestaDao getAlumnoRespuestaDAO();
 	public abstract RolDao getRolDAO();
 	public abstract UsuarioDao getUsuarioDAO();
 	public abstract EnlaceDao getEnlaceDAO();
 	public abstract RolEnlaceDao getRolEnlaceDAO();
-
+	
 	public static Factory getFactory(String database) {
 		
 		switch (database) {

@@ -7,17 +7,25 @@
     	
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         
+        <mapping-file>META-INF/mapping/alumno.xml</mapping-file>
+        <mapping-file>META-INF/mapping/curso.xml</mapping-file>
+        <mapping-file>META-INF/mapping/alumnocurso.xml</mapping-file>
+        <mapping-file>META-INF/mapping/examen.xml</mapping-file>
+        <mapping-file>META-INF/mapping/cursoexamen.xml</mapping-file>
+        <mapping-file>META-INF/mapping/alumnoexamen.xml</mapping-file>
+        <mapping-file>META-INF/mapping/pregunta.xml</mapping-file>
+        <mapping-file>META-INF/mapping/preguntaopcion.xml</mapping-file>
+        <mapping-file>META-INF/mapping/alumnorespuesta.xml</mapping-file>
         <mapping-file>META-INF/mapping/rol.xml</mapping-file>
-        <mapping-file>META-INF/mapping/tipodocumento.xml</mapping-file>
-		<mapping-file>META-INF/mapping/usuario.xml</mapping-file>
-		<mapping-file>META-INF/mapping/enlace.xml</mapping-file>
-		<mapping-file>META-INF/mapping/rolenlace.xml</mapping-file>
+        <mapping-file>META-INF/mapping/usuario.xml</mapping-file>
+        <mapping-file>META-INF/mapping/enlace.xml</mapping-file>
+        <mapping-file>META-INF/mapping/rolenlace.xml</mapping-file>
 		
-        <properties>
+        <properties> 
    			<property name="javax.persistence.jdbc.driver" 	 value="com.mysql.jdbc.Driver"/>
-          	<property name="javax.persistence.jdbc.url"    	 value="jdbc:mysql://localhost:3306/panderonico"/>
+          	<property name="javax.persistence.jdbc.url"    	 value="jdbc:mysql://localhost:3306/aulavirtual"/>
    			<property name="javax.persistence.jdbc.user"	 value="root"/>
-   			<property name="javax.persistence.jdbc.password" value="mysql"/>
+   			<property name="javax.persistence.jdbc.password" value="desarrollont,."/>
    			<property name="javax.persistence.logging.level" value="INFO"/> 
 		</properties>
         

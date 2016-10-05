@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Alumno Respuesta Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.AlumnoRespuesta" name="AlumnoRespuesta">
+        <table name="alumno_respuesta"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <basic name="texto">
+            	<column name="texto" />
+            </basic>
+            <many-to-one name="alumno">
+            	<join-column name="idalumno" referenced-column-name="idalumno" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="curso">
+            	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="examen">
+            	<join-column name="idexamen" referenced-column-name="idexamen" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="pregunta">
+            	<join-column name="idpregunta" referenced-column-name="idpregunta" insertable="false" updatable="false" />
+            </many-to-one>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.pk.AlumnoRespuestaPK">
+   		<attributes>
+   			<basic name="idalumno">
+   				<column name="idalumno"/>
+   			</basic>
+   			<basic name="idcurso">
+   				<column name="idcurso"/>
+   			</basic>
+   			<basic name="idexamen">
+   				<column name="idexamen"/>
+   			</basic>
+   			<basic name="idpregunta">
+   				<column name="idpregunta"/>
+   			</basic>
+   			<basic name="idopcion">
+   				<column name="idopcion"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>

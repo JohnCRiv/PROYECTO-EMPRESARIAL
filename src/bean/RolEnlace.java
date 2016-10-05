@@ -1,9 +1,12 @@
 package bean;
 
+import bean.pk.RolEnlacePK;
+
 public class RolEnlace {
 
 	private RolEnlacePK pk;
-	private String campo;
+	
+	// Auxiliaries
 	private Rol rol;
 	private Enlace enlace;
 	
@@ -33,14 +36,6 @@ public class RolEnlace {
 
 	public void setEnlace(Enlace enlace) {
 		this.enlace = enlace;
-	}
-
-	public String getCampo() {
-		return campo;
-	}
-
-	public void setCampo(String campo) {
-		this.campo = campo;
 	}
 	
 }

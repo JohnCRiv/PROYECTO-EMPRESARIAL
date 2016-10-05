@@ -2,6 +2,8 @@ package bean;
 
 import java.util.List;
 
+import bean.pk.EnlacePK;
+
 public class Enlace {
 	
 	private EnlacePK pk;

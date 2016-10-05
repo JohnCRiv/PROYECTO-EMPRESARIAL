@@ -11,25 +11,22 @@
         <table name="rol_enlace"/>
         <attributes>
             <embedded-id name="pk" />
-            <basic name="campo">
-            	<column name="campo" />
-            </basic>
             <many-to-one name="rol">
-            	<join-column name="idRol" referenced-column-name="idRol" insertable="false" updatable="false" />
+            	<join-column name="idrol" referenced-column-name="idrol" insertable="false" updatable="false" />
             </many-to-one>
             <many-to-one name="enlace">
-            	<join-column name="idEnlace" referenced-column-name="idEnlace" insertable="false" updatable="false" />
+            	<join-column name="idenlace" referenced-column-name="idenlace" insertable="false" updatable="false" />
             </many-to-one>
         </attributes>
    </entity>
    
-   <embeddable class="bean.RolEnlacePK">
+   <embeddable class="bean.pk.RolEnlacePK">
    		<attributes>
-   			<basic name="idRol">
-   				<column name="idRol"/>
+   			<basic name="idrol">
+   				<column name="idrol"/>
    			</basic>
-   			<basic name="idEnlace">
-   				<column name="idEnlace"/>
+   			<basic name="idenlace">
+   				<column name="idenlace"/>
    			</basic>
    		</attributes>
    </embeddable>

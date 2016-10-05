@@ -13,7 +13,7 @@ public class UsuarioServiceImpl extends GenericoServiceImpl<Usuario> implements 
 	private UsuarioDao dao = factory.getUsuarioDAO();
 	private static UsuarioServiceImpl service;
 	
-	protected UsuarioServiceImpl() {
+	private UsuarioServiceImpl() {
 		super.setGenericoDao(dao);
 	}
 	

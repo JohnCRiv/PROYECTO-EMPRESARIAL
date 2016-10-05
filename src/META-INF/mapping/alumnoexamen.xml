@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Alumno Examen Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.AlumnoExamen" name="AlumnoExamen">
+        <table name="alumno_examen"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <many-to-one name="alumno">
+            	<join-column name="idalumno" referenced-column-name="idalumno" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="curso">
+            	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="examen">
+            	<join-column name="idexamen" referenced-column-name="idexamen" insertable="false" updatable="false" />
+            </many-to-one>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.pk.AlumnoExamenPK">
+   		<attributes>
+   			<basic name="idalumno">
+   				<column name="idalumno"/>
+   			</basic>
+   			<basic name="idcurso">
+   				<column name="idcurso"/>
+   			</basic>
+   			<basic name="idexamen">
+   				<column name="idexamen"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>

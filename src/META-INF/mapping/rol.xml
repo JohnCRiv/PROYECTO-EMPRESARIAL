@@ -16,21 +16,21 @@
             </basic>
             <one-to-many name="usuarios">
             	<join-table name="usuario">
-            		<join-column name="idRol" referenced-column-name="idRol" />
+            		<join-column name="idrol" referenced-column-name="idrol" />
             	</join-table>
             </one-to-many>
             <one-to-many name="rolenlace">
             	<join-table name="rol_enlace">
-            		<join-column name="idRol" referenced-column-name="idRol" />
+            		<join-column name="idrol" referenced-column-name="idrol" />
             	</join-table>
             </one-to-many>
         </attributes>
    </entity>
    
-   <embeddable class="bean.RolPK">
+   <embeddable class="bean.pk.RolPK">
    		<attributes>
-   			<basic name="idRol">
-   				<column name="idRol"/>
+   			<basic name="idrol">
+   				<column name="idrol"/>
    			</basic>
    		</attributes>
    </embeddable>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+
+	<description>Pregunta Opcion Mapping</description>
+	<package>bean</package>
+
+	<entity class="bean.PreguntaOpcion" name="PreguntaOpcion">
+		<table name="pregunta_opcion" />
+		<attributes>
+			<embedded-id name="pk" />
+			<basic name="descripcion">
+				<column name="descripcion" />
+			</basic>
+			<basic name="estexto">
+				<column name="estexto" />
+			</basic>
+			<basic name="esrespuesta">
+				<column name="esrespuesta" />
+			</basic>
+			<many-to-one name="curso">
+            	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="pregunta">
+            	<join-column name="idpregunta" referenced-column-name="idpregunta" insertable="false" updatable="false" />
+            </many-to-one>
+		</attributes>
+	</entity>
+
+	<embeddable class="bean.pk.PreguntaOpcionPK">
+		<attributes>
+			<basic name="idcurso">
+				<column name="idcurso" />
+			</basic>
+			<basic name="idpregunta">
+				<column name="idpregunta" />
+			</basic>
+			<basic name="idopcion">
+				<column name="idopcion" />
+			</basic>
+		</attributes>
+	</embeddable>
+
+</entity-mappings>

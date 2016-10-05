@@ -9,15 +9,35 @@ import javax.faces.bean.SessionScoped;
 import org.primefaces.context.RequestContext;
 
 import generico.GenericoController.AccionSolicitada;
+import servicio.AlumnoCursoService;
+import servicio.AlumnoExamenService;
+import servicio.AlumnoRespuestaService;
+import servicio.AlumnoService;
+import servicio.CursoExamenService;
+import servicio.CursoPreguntaService;
+import servicio.CursoService;
 import servicio.EnlaceService;
+import servicio.ExamenPreguntaService;
+import servicio.ExamenService;
+import servicio.PreguntaOpcionService;
+import servicio.PreguntaService;
 import servicio.RolEnlaceService;
 import servicio.RolService;
-import servicio.TipoDocumentoService;
 import servicio.UsuarioService;
+import servicio.impl.AlumnoCursoServiceImpl;
+import servicio.impl.AlumnoExamenServiceImpl;
+import servicio.impl.AlumnoRespuestaServiceImpl;
+import servicio.impl.AlumnoServiceImpl;
+import servicio.impl.CursoExamenServiceImpl;
+import servicio.impl.CursoPreguntaServiceImpl;
+import servicio.impl.CursoServiceImpl;
 import servicio.impl.EnlaceServiceImpl;
+import servicio.impl.ExamenPreguntaServiceImpl;
+import servicio.impl.ExamenServiceImpl;
+import servicio.impl.PreguntaOpcionServiceImpl;
+import servicio.impl.PreguntaServiceImpl;
 import servicio.impl.RolEnlaceServiceImpl;
 import servicio.impl.RolServiceImpl;
-import servicio.impl.TipoDocumentoServiceImpl;
 import servicio.impl.UsuarioServiceImpl;
 import util.Constantes;
 import util.MensajeUsuario;
@@ -244,8 +264,48 @@ public abstract class BaseController {
 
 	/** SERVICIOS **/
 	
-	protected TipoDocumentoService getTipoDocumentoService() {
-		return TipoDocumentoServiceImpl.getInstance();
+	protected AlumnoService getAlumnoService() {
+		return AlumnoServiceImpl.getInstance();
+	}
+	
+	protected CursoService getCursoService() {
+		return CursoServiceImpl.getInstance();
+	}
+	
+	protected AlumnoCursoService getAlumnoCursoService() {
+		return AlumnoCursoServiceImpl.getInstance();
+	}
+	
+	protected ExamenService getExamenService() {
+		return ExamenServiceImpl.getInstance();
+	}
+	
+	protected CursoExamenService getCursoExamenService() {
+		return CursoExamenServiceImpl.getInstance();
+	}
+	
+	protected AlumnoExamenService getAlumnoExamenService() {
+		return AlumnoExamenServiceImpl.getInstance();
+	}
+	
+	protected PreguntaService getPreguntaService() {
+		return PreguntaServiceImpl.getInstance();
+	}
+	
+	protected CursoPreguntaService getCursoPreguntaService() {
+		return CursoPreguntaServiceImpl.getInstance();
+	}
+	
+	protected ExamenPreguntaService getExamenPreguntaService() {
+		return ExamenPreguntaServiceImpl.getInstance();
+	}
+	
+	protected PreguntaOpcionService getPreguntaOpcionService() {
+		return PreguntaOpcionServiceImpl.getInstance();
+	}
+	
+	protected AlumnoRespuestaService getAlumnoRespuestaService() {
+		return AlumnoRespuestaServiceImpl.getInstance();
 	}
 	
 	protected RolService getRolService() {
