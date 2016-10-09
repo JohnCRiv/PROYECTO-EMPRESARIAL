@@ -7,6 +7,8 @@ import dao.AlumnoRespuestaDao;
 import dao.CursoDao;
 import dao.CursoExamenDao;
 import dao.CursoPreguntaDao;
+import dao.DocenteCursoDao;
+import dao.DocenteDao;
 import dao.EnlaceDao;
 import dao.ExamenDao;
 import dao.ExamenPreguntaDao;
@@ -14,6 +16,7 @@ import dao.PreguntaDao;
 import dao.PreguntaOpcionDao;
 import dao.RolDao;
 import dao.RolEnlaceDao;
+import dao.SedeDao;
 import dao.UsuarioDao;
 import dao.impl.AlumnoCursoDaoImpl;
 import dao.impl.AlumnoDaoImpl;
@@ -22,6 +25,8 @@ import dao.impl.AlumnoRespuestaDaoImpl;
 import dao.impl.CursoDaoImpl;
 import dao.impl.CursoExamenDaoImpl;
 import dao.impl.CursoPreguntaDaoImpl;
+import dao.impl.DocenteCursoDaoImpl;
+import dao.impl.DocenteDaoImpl;
 import dao.impl.EnlaceDaoImpl;
 import dao.impl.ExamenDaoImpl;
 import dao.impl.ExamenPreguntaDaoImpl;
@@ -29,6 +34,7 @@ import dao.impl.PreguntaDaoImpl;
 import dao.impl.PreguntaOpcionDaoImpl;
 import dao.impl.RolDaoImpl;
 import dao.impl.RolEnlaceDaoImpl;
+import dao.impl.SedeDaoImpl;
 import dao.impl.UsuarioDaoImpl;
 
 /**
@@ -112,6 +118,21 @@ public class MySqlDAOFactory extends Factory {
 	@Override
 	public RolEnlaceDao getRolEnlaceDAO() {
 		return new RolEnlaceDaoImpl();
+	}
+
+	@Override
+	public DocenteDao getDocenteDAO() {
+		return new DocenteDaoImpl();
+	}
+
+	@Override
+	public SedeDao getSedeDAO() {
+		return new SedeDaoImpl();
+	}
+
+	@Override
+	public DocenteCursoDao getDocenteCursoDAO() {
+		return new DocenteCursoDaoImpl();
 	}
 	
 }

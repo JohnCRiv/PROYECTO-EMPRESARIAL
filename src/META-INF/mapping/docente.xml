@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+
+	<description>Docente Mapping</description>
+	<package>bean</package>
+
+	<entity class="bean.Docente" name="Docente">
+		<table name="docente" />
+		<attributes>
+			<embedded-id name="pk" />
+			<basic name="nombres">
+				<column name="nombres" />
+			</basic>
+			<basic name="apellidopaterno">
+				<column name="apellidopaterno" />
+			</basic>
+			<basic name="apellidomaterno">
+				<column name="apellidomaterno" />
+			</basic>
+			<basic name="numerodocumento">
+				<column name="numerodocumento" />
+			</basic>
+			<basic name="fechanacimiento">
+				<column name="fechanacimiento" />
+				<temporal>DATE</temporal>
+			</basic>
+			<many-to-one name="sede">
+           		<join-column name="idsede" referenced-column-name="idsede" />
+           	</many-to-one>
+		</attributes>
+	</entity>
+
+	<embeddable class="bean.pk.DocentePK">
+		<attributes>
+			<basic name="iddocente">
+				<column name="iddocente" />
+			</basic>
+		</attributes>
+	</embeddable>
+
+</entity-mappings>

@@ -6,6 +6,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
+	
+	
 	<div class="page-sidebar sidebar">
                 <div class="page-sidebar-inner slimscroll">
                     <div class="sidebar-header">
@@ -21,7 +23,7 @@
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                        <li class="active"><a onclick="return accion('btnLogin')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
                         <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Mailbox</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
@@ -85,5 +87,24 @@
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>
+            
+    <h:form id="formMenu">     
+    		 
+            <!-- BUTTONS -->
+            <p:commandButton id="btnLogin" immediate="true"
+				action="#{pruebaController.init()}"
+				style="display:none" />
+            
+            
+    </h:form>
+    
+    <script type="text/javascript">
+    	
+	    function accion(id) {
+	    	alert("formMenu:" + id);
+			document.getElementById('formMenu:' + id + '').click();
+		}
+    </script>
+  
 
 </ui:composition>

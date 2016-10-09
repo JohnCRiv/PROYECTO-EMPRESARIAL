@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    
+    <description>Docente Curso Mapping</description>
+    <package>bean</package>
+    
+    <entity class="bean.DocenteCurso" name="DocenteCurso">
+        <table name="docente_curso"/>
+        <attributes>
+            <embedded-id name="pk" />
+            <many-to-one name="docente">
+            	<join-column name="iddocente" referenced-column-name="iddocente" insertable="false" updatable="false" />
+            </many-to-one>
+            <many-to-one name="enlace">
+            	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
+            </many-to-one>
+        </attributes>
+   </entity>
+   
+   <embeddable class="bean.pk.RolEnlacePK">
+   		<attributes>
+   			<basic name="iddocente">
+   				<column name="iddocente"/>
+   			</basic>
+   			<basic name="idcurso">
+   				<column name="idcurso"/>
+   			</basic>
+   		</attributes>
+   </embeddable>
+   
+</entity-mappings>

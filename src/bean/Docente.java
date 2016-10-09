@@ -1,28 +1,29 @@
 package bean;
 
-import bean.pk.UsuarioPK;
+import java.util.Date;
 
-public class Usuario {
+import bean.pk.DocentePK;
 
-	private UsuarioPK pk;
+public class Docente {
+
+	private DocentePK pk;
 	private String nombres;
 	private String apellidopaterno;
 	private String apellidomaterno;
 	private String numerodocumento;
-	private String usuario;
-	private String clave;
-	private Rol rol;
+	private Date fechanacimiento;
+	private Sede sede;
 
-	public Usuario() {
-		pk = new UsuarioPK();
-		rol = new Rol();
+	public Docente() {
+		pk = new DocentePK();
+		sede = new Sede();
 	}
 
-	public UsuarioPK getPk() {
+	public DocentePK getPk() {
 		return pk;
 	}
 
-	public void setPk(UsuarioPK pk) {
+	public void setPk(DocentePK pk) {
 		this.pk = pk;
 	}
 
@@ -58,28 +59,20 @@ public class Usuario {
 		this.numerodocumento = numerodocumento;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public Date getFechanacimiento() {
+		return fechanacimiento;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setFechanacimiento(Date fechanacimiento) {
+		this.fechanacimiento = fechanacimiento;
 	}
 
-	public String getClave() {
-		return clave;
+	public Sede getSede() {
+		return sede;
 	}
 
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-	public Rol getRol() {
-		return rol;
-	}
-
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setSede(Sede sede) {
+		this.sede = sede;
 	}
 
 }

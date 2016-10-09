@@ -20,6 +20,9 @@
            	<basic name="apellidomaterno">
            		<column name="apellidomaterno" />
            	</basic>
+           	<basic name="numerodocumento">
+           		<column name="numerodocumento" />
+           	</basic>
            	<basic name="usuario">
            		<column name="usuario" />
            	</basic>

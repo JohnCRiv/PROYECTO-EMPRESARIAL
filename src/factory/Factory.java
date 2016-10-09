@@ -7,6 +7,8 @@ import dao.AlumnoRespuestaDao;
 import dao.CursoDao;
 import dao.CursoExamenDao;
 import dao.CursoPreguntaDao;
+import dao.DocenteCursoDao;
+import dao.DocenteDao;
 import dao.EnlaceDao;
 import dao.ExamenDao;
 import dao.ExamenPreguntaDao;
@@ -14,6 +16,7 @@ import dao.PreguntaDao;
 import dao.PreguntaOpcionDao;
 import dao.RolDao;
 import dao.RolEnlaceDao;
+import dao.SedeDao;
 import dao.UsuarioDao;
 
 /**
@@ -44,6 +47,9 @@ public abstract class Factory {
 	public abstract UsuarioDao getUsuarioDAO();
 	public abstract EnlaceDao getEnlaceDAO();
 	public abstract RolEnlaceDao getRolEnlaceDAO();
+	public abstract DocenteDao getDocenteDAO();
+	public abstract SedeDao getSedeDAO();
+	public abstract DocenteCursoDao getDocenteCursoDAO();
 	
 	public static Factory getFactory(String database) {
 		

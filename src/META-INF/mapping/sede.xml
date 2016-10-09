@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+
+	<description>Sede Mapping</description>
+	<package>bean</package>
+
+	<entity class="bean.Sede" name="Sede">
+		<table name="sede" />
+		<attributes>
+			<embedded-id name="pk" />
+			<basic name="nombre">
+				<column name="nombre" />
+			</basic>
+			<basic name="direccion">
+				<column name="direccion" />
+			</basic>
+			<basic name="telefono">
+				<column name="telefono" />
+			</basic>
+			<basic name="representante">
+				<column name="representante" />
+			</basic>
+			<basic name="fechainaguracion">
+				<column name="fechainaguracion" />
+				<temporal>DATE</temporal>
+			</basic>
+			<one-to-many name="alumnocurso">
+				<join-table name="alumno_curso">
+					<join-column name="idalumno" referenced-column-name="idalumno" />
+				</join-table>
+			</one-to-many>
+		</attributes>
+	</entity>
+
+	<embeddable class="bean.pk.SedePK">
+		<attributes>
+			<basic name="idsede">
+				<column name="idsede" />
+			</basic>
+		</attributes>
+	</embeddable>
+
+</entity-mappings>
