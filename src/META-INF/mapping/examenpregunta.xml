@@ -23,7 +23,7 @@
 		</attributes>
 	</entity>
 
-	<embeddable class="bean.pk.CursoExamenPK">
+	<embeddable class="bean.pk.ExamenPreguntaPK">
 		<attributes>
 			<basic name="idcurso">
 				<column name="idcurso" />

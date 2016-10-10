@@ -21,7 +21,7 @@
                 <column name="icono" />
             </basic>
             <one-to-many name="rolenlace">
-            	<join-table name="rol_enlace">
+            	<join-table name="rolenlace">
             		<join-column name="idenlace" referenced-column-name="idenlace" />
             	</join-table>
             </one-to-many>

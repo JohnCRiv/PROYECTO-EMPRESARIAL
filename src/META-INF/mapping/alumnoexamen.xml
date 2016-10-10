@@ -11,6 +11,10 @@
         <table name="alumno_examen"/>
         <attributes>
             <embedded-id name="pk" />
+            <basic name="fecha">
+            	<column name="fecha" />
+            	<temporal>DATE</temporal>
+            </basic>
             <many-to-one name="alumno">
             	<join-column name="idalumno" referenced-column-name="idalumno" insertable="false" updatable="false" />
             </many-to-one>

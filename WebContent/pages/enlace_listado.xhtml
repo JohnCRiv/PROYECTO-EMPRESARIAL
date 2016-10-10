@@ -32,41 +32,40 @@
 	                                <div class="panel-heading">
 	                                    <h4 class="panel-title">Form Elements</h4>
 	                                    <div class="form-group text-right m-b-0">
-													<mp:button action="#{pruebaController.guardar()}" value="Nuevo"
-														onstart="PF('bUI').block();"
-														oncomplete="PF('bUI').unblock();"
-														update="@form" />
+													<mp:button action="#{enlaceController.nuevo()}" value="Nuevo" />
 												</div>
 	                                </div>
 	                                <div class="panel-body">
-	                                    <p:dataTable emptyMessage="No existen registros">
-	                                    	<p:column headerText="Columna1" >
-												
+	                                    <p:dataTable emptyMessage="No existen registros" id="tblEnlace"
+	                                    	value="#{enlaceController.listaEnlace}" var="var" >
+	                                    	<p:column headerText="ID ENLACE" >
+												<h:outputText value="#{var.pk.idenlace}" />
 											</p:column>
-											<p:column headerText="Columna1" >
-												
+											<p:column headerText="DESCRIPCION" >
+												<h:outputText value="#{var.descripcion}" />
 											</p:column>
-											<p:column headerText="Columna1" >
-												
+											<p:column headerText="RUTA" >
+												<h:outputText value="#{var.ruta}" />
 											</p:column>
-											<p:column headerText="Columna1" >
-												
-											</p:column>
-											<p:column headerText="Columna1" >
-												
+											<p:column headerText="ICONO" >
+												<h:outputText value="#{var.icono}" />
 											</p:column>
 											<p:column headerText="Acciones">
 												<p:panelGrid columns="3" style="border-spacing:0px;"
 													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
 													layout="grid" styleClass="ui-panelgrid-blank">
-													<p:commandLink immediate="true" title="Editar" >
-														
+													<p:commandLink immediate="true" title="Editar"
+														action="#{enlaceController.editar()}" >
+														<f:setPropertyActionListener value="#{var}" 
+															target="#{enlaceController.enlace}" />
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
 							
-													<p:commandLink immediate="true" title="Eliminar">
-														
+													<p:commandLink immediate="true" title="Eliminar" 
+														action="#{enlaceController.eliminar()}" update="tblEnlace">
+														<f:setPropertyActionListener value="#{var}" 
+															target="#{enlaceController.enlace}" />
 														<h:graphicImage
 															value="/assets/images/eliminar.png" />
 														<p:confirm header="Confirmación" icon="fa fa-exclamation"

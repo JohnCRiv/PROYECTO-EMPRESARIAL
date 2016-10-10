@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a onclick="return accion('btnLogin')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                        <li class="active"><a onclick="return accion('btnLog')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Enlace</p></a></li>
                         <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Mailbox</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
@@ -91,8 +91,8 @@
     <h:form id="formMenu">     
     		 
             <!-- BUTTONS -->
-            <p:commandButton id="btnLogin" immediate="true"
-				action="#{pruebaController.init()}"
+            <p:commandButton id="btnLog" immediate="true"
+				action="#{enlaceController.init}"
 				style="display:none" />
             
             
@@ -101,7 +101,6 @@
     <script type="text/javascript">
     	
 	    function accion(id) {
-	    	alert("formMenu:" + id);
 			document.getElementById('formMenu:' + id + '').click();
 		}
     </script>

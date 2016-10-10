@@ -20,7 +20,7 @@
             	</join-table>
             </one-to-many>
             <one-to-many name="rolenlace">
-            	<join-table name="rol_enlace">
+            	<join-table name="rolenlace">
             		<join-column name="idrol" referenced-column-name="idrol" />
             	</join-table>
             </one-to-many>

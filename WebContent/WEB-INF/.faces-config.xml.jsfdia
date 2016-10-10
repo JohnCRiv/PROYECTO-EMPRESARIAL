@@ -2,11 +2,18 @@
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="log::#pages#login.xhtml" NAME="output"
-    PATH="/pages/login.xhtml" TARGET="rules:#pages#login.xhtml"
-    TITLE="log" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="enlace_listado::#pages#enlace_listado.xhtml"
+    NAME="output" PATH="/pages/enlace_listado.xhtml"
+    TARGET="rules:#pages#enlace_listado.xhtml" TITLE="enlace_listado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="enlace_mantenimiento::#pages#enlace_mantenimiento.xhtml"
+    NAME="output1" PATH="/pages/enlace_mantenimiento.xhtml"
+    TARGET="rules:#pages#enlace_mantenimiento.xhtml"
+    TITLE="enlace_mantenimiento" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#login.xhtml" PATH="/pages/login.xhtml"
-  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#enlace_listado.xhtml"
+  PATH="/pages/enlace_listado.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#enlace_mantenimiento.xhtml"
+  PATH="/pages/enlace_mantenimiento.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

@@ -6,8 +6,13 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>log</from-outcome>
-			<to-view-id>/pages/login.xhtml</to-view-id>
+			<from-outcome>enlace_listado</from-outcome>
+			<to-view-id>/pages/enlace_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>enlace_mantenimiento</from-outcome>
+			<to-view-id>/pages/enlace_mantenimiento.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

@@ -8,7 +8,7 @@ public class CursoExamen {
 
 	// Auxiliaries
 	private Curso curso;
-	private Examen Examen;
+	private Examen examen;
 
 	public CursoExamen() {
 		pk = new CursoExamenPK();
@@ -31,11 +31,11 @@ public class CursoExamen {
 	}
 
 	public Examen getExamen() {
-		return Examen;
+		return examen;
 	}
 
 	public void setExamen(Examen examen) {
-		Examen = examen;
+		this.examen = examen;
 	}
 
 }
