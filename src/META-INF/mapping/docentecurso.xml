@@ -14,13 +14,13 @@
             <many-to-one name="docente">
             	<join-column name="iddocente" referenced-column-name="iddocente" insertable="false" updatable="false" />
             </many-to-one>
-            <many-to-one name="enlace">
+            <many-to-one name="curso">
             	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
             </many-to-one>
         </attributes>
    </entity>
    
-   <embeddable class="bean.pk.RolEnlacePK">
+   <embeddable class="bean.pk.DocenteCursoPK">
    		<attributes>
    			<basic name="iddocente">
    				<column name="iddocente"/>

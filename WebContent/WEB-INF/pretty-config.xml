@@ -13,5 +13,15 @@
 		<pattern value="/home" />
 		<view-id value="/pages/bienvenida.xhtml" />
 	</url-mapping>
+	
+	<url-mapping id="enlace_listado">
+		<pattern value="/enlace_listado" />
+		<view-id value="/pages/enlace_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="enlace_mantenimiento">
+		<pattern value="/enlace_mantenimiento" />
+		<view-id value="/pages/enlace_mantenimiento.xhtml" />
+	</url-mapping>
 
 </pretty-config>

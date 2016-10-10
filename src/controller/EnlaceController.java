@@ -18,10 +18,9 @@ public class EnlaceController extends BaseController implements GenericoControll
 	private Enlace enlace;
 	private List<Rol> listaRol;
 	
-	
 	public EnlaceController() {
-		pantallaListado = "enlace_listado";
-		pantallaMantenimiento = "enlace_mantenimiento";
+		pantallaListado = "pretty:enlace_listado";
+		pantallaMantenimiento = "pretty:enlace_mantenimiento";
 	}
 	
 	@Override

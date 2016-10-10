@@ -268,6 +268,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombres` VARCHAR(45) NOT NULL,
   `apellidopaterno` VARCHAR(45) NOT NULL,
   `apellidomaterno` VARCHAR(45) NOT NULL,
+  `numerodocumento` VARCHAR(45) NOT NULL,
   `usuario` VARCHAR(45) NOT NULL,
   `clave` VARCHAR(45) NOT NULL,
   `idrol` INT NOT NULL,
@@ -314,6 +315,69 @@ CREATE TABLE IF NOT EXISTS `rolenlace` (
   CONSTRAINT `fk_rol_has_enlace_enlace1`
     FOREIGN KEY (`idenlace`)
     REFERENCES `enlace` (`idenlace`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sede`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sede` ;
+
+CREATE TABLE IF NOT EXISTS `sede` (
+  `idsede` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(45) NOT NULL,
+  `representante` VARCHAR(45) NOT NULL,
+  `fechainaguracion` DATE NOT NULL,
+  PRIMARY KEY (`idsede`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `docente`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `docente` ;
+
+CREATE TABLE IF NOT EXISTS `docente` (
+  `iddocente` INT NOT NULL AUTO_INCREMENT,
+  `nombres` VARCHAR(45) NOT NULL,
+  `apellidopaterno` VARCHAR(45) NOT NULL,
+  `apellidomaterno` VARCHAR(45) NOT NULL,
+  `numerodocumento` VARCHAR(45) NOT NULL,
+  `fechanacimiento` DATE NOT NULL,
+  `idsede` INT NOT NULL,
+  PRIMARY KEY (`iddocente`, `idsede`),
+  INDEX `fk_docente_sede1_idx` (`idsede` ASC),
+  CONSTRAINT `fk_docente_sede1`
+    FOREIGN KEY (`idsede`)
+    REFERENCES `sede` (`idsede`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `docente_curso`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `docente_curso` ;
+
+CREATE TABLE IF NOT EXISTS `docente_curso` (
+  `iddocente` INT NOT NULL,
+  `idcurso` INT NOT NULL,
+  PRIMARY KEY (`iddocente`, `idcurso`),
+  INDEX `fk_docente_has_curso_curso1_idx` (`idcurso` ASC),
+  INDEX `fk_docente_has_curso_docente1_idx` (`iddocente` ASC),
+  CONSTRAINT `fk_docente_has_curso_docente1`
+    FOREIGN KEY (`iddocente`)
+    REFERENCES `docente` (`iddocente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_docente_has_curso_curso1`
+    FOREIGN KEY (`idcurso`)
+    REFERENCES `curso` (`idcurso`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

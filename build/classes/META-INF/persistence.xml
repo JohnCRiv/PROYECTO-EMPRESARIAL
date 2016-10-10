@@ -22,13 +22,16 @@
         <mapping-file>META-INF/mapping/enlace.xml</mapping-file>
         <mapping-file>META-INF/mapping/rolenlace.xml</mapping-file>
         <mapping-file>META-INF/mapping/examenpregunta.xml</mapping-file>
-        
+        <mapping-file>META-INF/mapping/docente.xml</mapping-file>
+        <mapping-file>META-INF/mapping/docentecurso.xml</mapping-file>
+        <mapping-file>META-INF/mapping/sede.xml</mapping-file>
 		
-        <properties> 
-   			<property name="javax.persistence.jdbc.driver" 	 value="com.mysql.jdbc.Driver"/>
-          	<property name="javax.persistence.jdbc.url"    	 value="jdbc:mysql://localhost:3306/aulavirtual"/>
-   			<property name="javax.persistence.jdbc.user"	 value="root"/>
-   			<property name="javax.persistence.jdbc.password" value="desarrollont,."/>
+        <properties>
+   			<property name="javax.persistence.jdbc.driver" 	 value="com.mysql.jdbc.Driver" />
+          	<property name="javax.persistence.jdbc.url"    	 value="jdbc:mysql://localhost:3306/aulavirtual" />
+   			<property name="javax.persistence.jdbc.user"	 value="root" />
+   			<property name="javax.persistence.jdbc.password" value="desarrollont,." />
+   			<property name="eclipselink.allow-zero-id" 		 value="true" />
 		</properties>
         
     </persistence-unit>

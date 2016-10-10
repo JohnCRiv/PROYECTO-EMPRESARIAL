@@ -16,6 +16,8 @@ import servicio.AlumnoService;
 import servicio.CursoExamenService;
 import servicio.CursoPreguntaService;
 import servicio.CursoService;
+import servicio.DocenteCursoService;
+import servicio.DocenteService;
 import servicio.EnlaceService;
 import servicio.ExamenPreguntaService;
 import servicio.ExamenService;
@@ -23,6 +25,7 @@ import servicio.PreguntaOpcionService;
 import servicio.PreguntaService;
 import servicio.RolEnlaceService;
 import servicio.RolService;
+import servicio.SedeService;
 import servicio.UsuarioService;
 import servicio.impl.AlumnoCursoServiceImpl;
 import servicio.impl.AlumnoExamenServiceImpl;
@@ -31,6 +34,8 @@ import servicio.impl.AlumnoServiceImpl;
 import servicio.impl.CursoExamenServiceImpl;
 import servicio.impl.CursoPreguntaServiceImpl;
 import servicio.impl.CursoServiceImpl;
+import servicio.impl.DocenteCursoServiceImpl;
+import servicio.impl.DocenteServiceImpl;
 import servicio.impl.EnlaceServiceImpl;
 import servicio.impl.ExamenPreguntaServiceImpl;
 import servicio.impl.ExamenServiceImpl;
@@ -38,6 +43,7 @@ import servicio.impl.PreguntaOpcionServiceImpl;
 import servicio.impl.PreguntaServiceImpl;
 import servicio.impl.RolEnlaceServiceImpl;
 import servicio.impl.RolServiceImpl;
+import servicio.impl.SedeServiceImpl;
 import servicio.impl.UsuarioServiceImpl;
 import util.Constantes;
 import util.MensajeUsuario;
@@ -322,6 +328,18 @@ public abstract class BaseController {
 	
 	protected RolEnlaceService getRolEnlaceService() {
 		return RolEnlaceServiceImpl.getInstance();
+	}
+	
+	protected DocenteService getDocenteService() {
+		return DocenteServiceImpl.getInstance();
+	}
+	
+	protected DocenteCursoService getDocenteCursoService() {
+		return DocenteCursoServiceImpl.getInstance();
+	}
+	
+	protected SedeService getSedeService() {
+		return SedeServiceImpl.getInstance();
 	}
 	
 }

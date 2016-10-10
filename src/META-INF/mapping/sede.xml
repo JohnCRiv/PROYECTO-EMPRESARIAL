@@ -27,11 +27,6 @@
 				<column name="fechainaguracion" />
 				<temporal>DATE</temporal>
 			</basic>
-			<one-to-many name="alumnocurso">
-				<join-table name="alumno_curso">
-					<join-column name="idalumno" referenced-column-name="idalumno" />
-				</join-table>
-			</one-to-many>
 		</attributes>
 	</entity>
 

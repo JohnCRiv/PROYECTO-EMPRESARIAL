@@ -55,7 +55,7 @@
 			<div class="card-box">
 				<div class="widget-chart text-center">
 					<div style="display: inline; width: 100px; height: 100px;">
-						<h:graphicImage value="#{request.contextPath}/assets/images/loading.gif"
+						<h:graphicImage value="/assets/images/loading.gif"
  								width="80" height="80" />
 					</div>
 					<h5 class="text-muted m-t-20" >PROCESANDO</h5>
@@ -79,11 +79,38 @@
 			style="width: 50px; height: 50px; position: fixed; right: 5px; bottom: 5px;">
 			<p:ajaxStatus>
 				<f:facet name="start">
-					<h:graphicImage value="#{request.contextPath}/assets/images/loading.gif"
+					<h:graphicImage value="/assets/images/loading.gif"
  								width="50" height="50" />
 				</f:facet>
 			</p:ajaxStatus>
 		</div>
+		
+		<style type="text/css">
+			.ui-datatable .ui-state-default {
+				color: #666666;
+				border-style: none;
+				background-color: white;
+				background-image: none;
+				border-radius: 0px;
+				border-bottom: 2px solid #ebeff2;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: center;
+				cursor: default;
+			}
+			
+			.ui-datatable tbody td {
+				color: #666666;
+				border-style: none;
+				background-color: white;
+				background-image: none;
+				border-radius: 0px;
+				border-bottom: 2px solid #ebeff2;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: center;
+			}
+		</style>
         
 <!--         <script src="#{request.contextPath}/assets/plugins/jquery/jquery-2.1.4.min.js"></script> -->
 <!--         <script src="#{request.contextPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->

@@ -37,20 +37,21 @@
 	                                </div>
 	                                <div class="panel-body">
 	                                    <p:dataTable emptyMessage="No existen registros" id="tblEnlace"
+	                                    	scrollable="true" scrollWidth="1050" style="margin-top:20px;"
 	                                    	value="#{enlaceController.listaEnlace}" var="var" >
-	                                    	<p:column headerText="ID ENLACE" >
+	                                    	<p:column headerText="ID ENLACE" width="50">
 												<h:outputText value="#{var.pk.idenlace}" />
 											</p:column>
-											<p:column headerText="DESCRIPCION" >
+											<p:column headerText="DESCRIPCION" width="150">
 												<h:outputText value="#{var.descripcion}" />
 											</p:column>
-											<p:column headerText="RUTA" >
+											<p:column headerText="RUTA" width="50">
 												<h:outputText value="#{var.ruta}" />
 											</p:column>
-											<p:column headerText="ICONO" >
+											<p:column headerText="ICONO" width="50">
 												<h:outputText value="#{var.icono}" />
 											</p:column>
-											<p:column headerText="Acciones">
+											<p:column headerText="ACCIONES" width="30">
 												<p:panelGrid columns="3" style="border-spacing:0px;"
 													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
 													layout="grid" styleClass="ui-panelgrid-blank">
@@ -61,7 +62,7 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-							
+													<p:spacer></p:spacer>
 													<p:commandLink immediate="true" title="Eliminar" 
 														action="#{enlaceController.eliminar()}" update="tblEnlace">
 														<f:setPropertyActionListener value="#{var}" 
@@ -80,5 +81,9 @@
 	                	</h:form>
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
+                <style type="text/css">
+					
+                	
+                </style>
 	</ui:define>
 </ui:composition>

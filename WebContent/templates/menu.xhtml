@@ -93,6 +93,8 @@
             <!-- BUTTONS -->
             <p:commandButton id="btnLog" immediate="true"
 				action="#{enlaceController.init}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
 				style="display:none" />
             
             
