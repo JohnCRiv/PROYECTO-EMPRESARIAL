@@ -5,6 +5,6 @@ import generico.GenericoDao;
 
 public interface RolDao extends GenericoDao<Rol> {
 	
-	
+	public Rol obtenerRolMaxID();
 	
 }

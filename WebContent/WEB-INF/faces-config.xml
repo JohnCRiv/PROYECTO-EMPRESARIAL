@@ -5,6 +5,7 @@
 	
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
+		
 		<navigation-case>
 			<from-outcome>enlace_listado</from-outcome>
 			<to-view-id>/pages/enlace_listado.xhtml</to-view-id>
@@ -15,6 +16,29 @@
 			<to-view-id>/pages/enlace_mantenimiento.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>docente_listado</from-outcome>
+			<to-view-id>/pages/docente_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>docente_mantenimiento</from-outcome>
+			<to-view-id>/pages/docente_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>rol_listado</from-outcome>
+			<to-view-id>/pages/rol_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>rol_mantenimiento</from-outcome>
+			<to-view-id>/pages/rol_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
 	</navigation-rule>
 	
 </faces-config>

@@ -2,22 +2,22 @@ package bean.pk;
 
 public class RolEnlacePK {
 
-	private int idrol;
-	private int idenlace;
+	private Integer idrol;
+	private Integer idenlace;
 
-	public int getIdrol() {
+	public Integer getIdrol() {
 		return idrol;
 	}
 
-	public void setIdrol(int idrol) {
+	public void setIdrol(Integer idrol) {
 		this.idrol = idrol;
 	}
 
-	public int getIdenlace() {
+	public Integer getIdenlace() {
 		return idenlace;
 	}
 
-	public void setIdenlace(int idenlace) {
+	public void setIdenlace(Integer idenlace) {
 		this.idenlace = idenlace;
 	}
 

@@ -12,6 +12,9 @@ public class Enlace {
 	private String icono;
 	private List<RolEnlace> rolenlace;
 	
+	//
+	private Boolean seleccionado;
+	
 	public Enlace() {
 		pk = new EnlacePK();
 	}
@@ -56,4 +59,16 @@ public class Enlace {
 		this.rolenlace = rolenlace;
 	}
 
+	public Boolean getSeleccionado() {
+		return seleccionado;
+	}
+
+	public void setSeleccionado(Boolean seleccionado) {
+		this.seleccionado = seleccionado;
+	}
+	
+	public Boolean esSeleccionado() {
+		return seleccionado;
+	}
+	
 }

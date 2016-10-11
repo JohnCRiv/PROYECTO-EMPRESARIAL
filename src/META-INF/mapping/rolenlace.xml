@@ -8,7 +8,7 @@
     <package>bean</package>
     
     <entity class="bean.RolEnlace" name="RolEnlace">
-        <table name="rol_enlace"/>
+        <table name="rolenlace"/>
         <attributes>
             <embedded-id name="pk" />
             <many-to-one name="rol">

@@ -23,5 +23,10 @@ public class RolServiceImpl extends GenericoServiceImpl<Rol> implements RolServi
 		
 		return service;
 	}
+
+	@Override
+	public Rol obtenerRolMaxID() {
+		return dao.obtenerRolMaxID();
+	}
 	
 }

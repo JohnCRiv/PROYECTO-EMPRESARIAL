@@ -2,13 +2,13 @@ package bean.pk;
 
 public class EnlacePK {
 
-	private int idenlace;
+	private Integer idenlace;
 
-	public int getIdenlace() {
+	public Integer getIdenlace() {
 		return idenlace;
 	}
 
-	public void setIdenlace(int idenlace) {
+	public void setIdenlace(Integer idenlace) {
 		this.idenlace = idenlace;
 	}
 

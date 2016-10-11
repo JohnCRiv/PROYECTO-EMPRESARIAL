@@ -16,8 +16,8 @@ public class PruebaController extends BaseController implements GenericoControll
 	
 	@Override
 	public String init() throws Exception {
-		this.enviarMensajeExitoso("sd", "asds");
-		return "log";
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	@Override

@@ -36,15 +36,33 @@
 	                                    <div class="col-md-6">
 											<div class="form-horizontal">
 												<div class="form-group">
-													<label class="col-md-2 control-label" for="example-email">Descripción</label>
+													<label class="col-md-2 control-label" for="example-email">Nombres</label>
 													<div class="col-md-10">
-														<mp:input value="#{enlaceController.enlace.descripcion}" required="true" requiredMessage="Ingrese un nombre" />
+														<mp:input value="#{docenteController.docente.nombres}" required="true" requiredMessage="Ingrese un nombre" />
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-md-2 control-label" for="example-email">Ruta</label>
+													<label class="col-md-2 control-label" for="example-email">Apellido Paterno</label>
 													<div class="col-md-10">
-														<mp:input value="#{enlaceController.enlace.ruta}" required="true" requiredMessage="Ingrese una ruta" />
+														<mp:input value="#{docenteController.docente.apellidopaterno}" required="true" requiredMessage="Ingrese apellido paterno" />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-2 control-label" for="example-email">Apellido Materno</label>
+													<div class="col-md-10">
+														<mp:input value="#{docenteController.docente.apellidomaterno}" required="true" requiredMessage="Ingrese apellido materno" />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-2 control-label" for="example-email">Num. Documento</label>
+													<div class="col-md-10">
+														<mp:input value="#{docenteController.docente.numerodocumento}" required="true" requiredMessage="Ingrese número de documento" />
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-2 control-label" for="example-email">Fecha Nacimiento</label>
+													<div class="col-md-10">
+														<mp:datePicker value="#{docenteController.docente.fechanacimiento}" />
 													</div>
 												</div>
 											</div>
@@ -54,19 +72,18 @@
 											<div class="form-horizontal">
 				
 												<div class="form-group">
-													<label class="col-md-2 control-label" for="example-email">Icono</label>
+													<label class="col-md-2 control-label" for="example-email">Sede</label>
 													<div class="col-md-10">
-<!-- 														<mp:selectOne value="#{enlaceController.enlace.icono}"> -->
-<!-- 															<f:selectItems value="#{enlaceController.listaRol}" var="var" -->
-<!-- 																itemLabel="#{var.rol}" itemValue="#{var.pk.idrol}" /> -->
-<!-- 														</mp:selectOne> -->
-															<mp:input value="#{enlaceController.enlace.icono}" required="true" requiredMessage="Ingrese una icono" />
+														<mp:selectOne value="#{docenteController.docente.sede.pk.idsede}">
+															<f:selectItems value="#{docenteController.listaSede}" var="var"
+																itemLabel="#{var.nombre}" itemValue="#{var.pk.idsede}" />
+														</mp:selectOne>
 													</div>
 												</div>
 												
 			
 												<div class="form-group text-right m-b-0">
-													<mp:button action="#{enlaceController.guardar()}" value="Guardar"
+													<mp:button action="#{docenteController.guardar()}" value="Registrar"
 														/>
 												</div>
 			

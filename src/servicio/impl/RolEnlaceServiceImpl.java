@@ -1,5 +1,9 @@
 package servicio.impl;
 
+import java.util.List;
+
+import bean.Enlace;
+import bean.Rol;
 import bean.RolEnlace;
 import dao.RolEnlaceDao;
 import factory.Factory;
@@ -22,6 +26,16 @@ public class RolEnlaceServiceImpl extends GenericoServiceImpl<RolEnlace> impleme
 			service = new RolEnlaceServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public void eliminarSegunRol(Rol rol) {
+		dao.eliminarSegunRol(rol);
+	}
+
+	@Override
+	public void registrarRolEnlace(Rol rol, List<Enlace> listaEnlaces) {
+		dao.registrarRolEnlace(rol, listaEnlaces);
 	}
 	
 }

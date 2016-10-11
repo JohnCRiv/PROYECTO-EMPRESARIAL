@@ -32,41 +32,52 @@
 	                                <div class="panel-heading">
 	                                    <h4 class="panel-title">Form Elements</h4>
 	                                    <div class="form-group text-right m-b-0">
-													<mp:button action="#{enlaceController.nuevo()}" value="Nuevo" />
+													<mp:button action="#{docenteController.nuevo()}" value="Nuevo" />
 												</div>
 	                                </div>
 	                                <div class="panel-body">
-	                                    <p:dataTable emptyMessage="No existen registros" id="tblEnlace"
+	                                    <p:dataTable emptyMessage="No existen registros" id="tblDocente"
 	                                    	scrollable="true" scrollWidth="1050" style="margin-top:20px;"
-	                                    	value="#{enlaceController.listaEnlace}" var="var" >
-	                                    	<p:column headerText="ID ENLACE" width="50">
-												<h:outputText value="#{var.pk.idenlace}" />
+	                                    	value="#{docenteController.listaDocente}" var="var" >
+	                                    	<p:column headerText="ID Docente" width="25" >
+												<h:outputText value="#{var.pk.iddocente}" />
 											</p:column>
-											<p:column headerText="DESCRIPCION" width="150">
-												<h:outputText value="#{var.descripcion}" />
+											<p:column headerText="NUM. DOCUMENTO" width="50" >
+												<h:outputText value="#{var.numerodocumento}" />
 											</p:column>
-											<p:column headerText="RUTA" width="50">
-												<h:outputText value="#{var.ruta}" />
+											<p:column headerText="NOMBRES" width="50" >
+												<h:outputText value="#{var.nombres}" />
 											</p:column>
-											<p:column headerText="ICONO" width="50">
-												<h:outputText value="#{var.icono}" />
+											<p:column headerText="APE. PATERNO" width="50" >
+												<h:outputText value="#{var.apellidopaterno}" />
 											</p:column>
-											<p:column headerText="ACCIONES" width="30">
+											<p:column headerText="APE. MATERNO" width="50" >
+												<h:outputText value="#{var.apellidomaterno}" />
+											</p:column>
+											<p:column headerText="FECHA NACIMIENTO" width="50" >
+												<h:outputText value="#{var.fechanacimiento}" >
+													<f:convertDateTime pattern="dd/MM/yyyy" />
+												</h:outputText>
+											</p:column>
+											<p:column headerText="SEDE" width="50" >
+												<h:outputText value="#{var.sede.nombre}" />
+											</p:column>
+											<p:column headerText="ACCIONES">
 												<p:panelGrid columns="3" style="border-spacing:0px;"
 													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
-														action="#{enlaceController.editar()}" >
+														action="#{docenteController.editar()}" >
 														<f:setPropertyActionListener value="#{var}" 
-															target="#{enlaceController.enlace}" />
+															target="#{docenteController.docente}" />
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer></p:spacer>
+													<p:spacer />
 													<p:commandLink immediate="true" title="Eliminar" 
-														action="#{enlaceController.eliminar()}" update="tblEnlace">
+														action="#{docenteController.eliminar()}" update="tblDocente">
 														<f:setPropertyActionListener value="#{var}" 
-															target="#{enlaceController.enlace}" />
+															target="#{docenteController.docente}" />
 														<h:graphicImage
 															value="/assets/images/eliminar.png" />
 														<p:confirm header="Confirmación" icon="fa fa-exclamation"

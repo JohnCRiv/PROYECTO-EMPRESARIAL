@@ -25,6 +25,7 @@
             		<join-column name="idenlace" referenced-column-name="idenlace" />
             	</join-table>
             </one-to-many>
+            <transient name="seleccionado" />
         </attributes>
    </entity>
    
