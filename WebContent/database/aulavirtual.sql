@@ -26,6 +26,10 @@ DROP TABLE IF EXISTS `curso` ;
 CREATE TABLE IF NOT EXISTS `curso` (
   `idcurso` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(100) NOT NULL,
+  `creditos` INT NOT NULL,
+  `horasteoria` INT NOT NULL,
+  `horaslaboratorio` INT NOT NULL,
+  `horastotal` INT NOT NULL,
   PRIMARY KEY (`idcurso`))
 ENGINE = InnoDB;
 

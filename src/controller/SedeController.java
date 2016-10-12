@@ -5,22 +5,21 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import bean.Docente;
+
 import bean.Sede;
 import generico.BaseController;
 import generico.GenericoController;
 
 @ManagedBean
 @SessionScoped
-public class DocenteController extends BaseController implements GenericoController {
+public class SedeController extends BaseController implements GenericoController {
 
-	private List<Docente> listaDocente;
-	private Docente docente;
 	private List<Sede> listaSede;
+	private Sede sede;
 	
-	public DocenteController() {
-		pantallaListado = "pretty:docente_listado";
-		pantallaMantenimiento = "pretty:docente_mantenimiento";
+	public SedeController() {
+		pantallaListado = "pretty:sede_listado";
+		pantallaMantenimiento = "pretty:sede_mantenimiento";
 	}
 	
 	@Override
@@ -31,13 +30,13 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String buscar() throws Exception {
-		listaDocente = getDocenteService().listarTodos();
+		listaSede = getSedeService().listarTodos();
 		return null;
 	}
 
 	@Override
 	public String nuevo() throws Exception {
-		docente = new Docente();
+		sede = new Sede();
 		setAccionSolicitada(AccionSolicitada.NUEVO);
 		return pantallaMantenimiento;
 	}
@@ -51,10 +50,10 @@ public class DocenteController extends BaseController implements GenericoControl
 	@Override
 	public String guardar() throws Exception {
 		if (accionSolicitada.equals(AccionSolicitada.NUEVO)) {
-			getDocenteService().registrar(docente);
+			getSedeService().registrar(sede);
 			enviarMensajeExitoso("Éxito", "Se registró!");
 		} else {
-			getDocenteService().actualizar(docente);
+			getSedeService().actualizar(sede);
 			enviarMensajeExitoso("Éxito", "Se actualizó!");
 		}
 		
@@ -70,7 +69,7 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String eliminar() throws Exception {
-		getDocenteService().eliminar(docente);
+		getSedeService().eliminar(sede);
 		buscar();
 		enviarMensajeExitoso("Éxito", "Se eliminó!");
 		return null;
@@ -102,25 +101,8 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String inicializarDatosMantenimiento() throws Exception {
-		listaDocente = getDocenteService().listarTodos();
 		listaSede = getSedeService().listarTodos();
 		return null;
-	}
-
-	public List<Docente> getListaDocente() {
-		return listaDocente;
-	}
-
-	public void setListaDocente(List<Docente> listaDocente) {
-		this.listaDocente = listaDocente;
-	}
-
-	public Docente getDocente() {
-		return docente;
-	}
-
-	public void setDocente(Docente docente) {
-		this.docente = docente;
 	}
 
 	public List<Sede> getListaSede() {
@@ -129,6 +111,14 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	public void setListaSede(List<Sede> listaSede) {
 		this.listaSede = listaSede;
+	}
+
+	public Sede getSede() {
+		return sede;
+	}
+
+	public void setSede(Sede sede) {
+		this.sede = sede;
 	}
 	
 }

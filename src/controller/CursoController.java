@@ -5,24 +5,22 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import bean.Docente;
-import bean.Sede;
+import bean.Curso;
 import generico.BaseController;
 import generico.GenericoController;
 
 @ManagedBean
 @SessionScoped
-public class DocenteController extends BaseController implements GenericoController {
+public class CursoController extends BaseController implements GenericoController {
 
-	private List<Docente> listaDocente;
-	private Docente docente;
-	private List<Sede> listaSede;
-	
-	public DocenteController() {
-		pantallaListado = "pretty:docente_listado";
-		pantallaMantenimiento = "pretty:docente_mantenimiento";
+	private List<Curso> listaCurso;
+	private Curso curso;
+
+	public CursoController()  {
+		pantallaListado = "pretty:curso_listado";
+		pantallaMantenimiento = "pretty:curso_mantenimiento";
 	}
-	
+
 	@Override
 	public String init() throws Exception {
 		inicializarDatosMantenimiento();
@@ -31,13 +29,13 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String buscar() throws Exception {
-		listaDocente = getDocenteService().listarTodos();
+		listaCurso = getCursoService().listarTodos();
 		return null;
 	}
 
 	@Override
 	public String nuevo() throws Exception {
-		docente = new Docente();
+		curso = new Curso();
 		setAccionSolicitada(AccionSolicitada.NUEVO);
 		return pantallaMantenimiento;
 	}
@@ -49,20 +47,6 @@ public class DocenteController extends BaseController implements GenericoControl
 	}
 
 	@Override
-	public String guardar() throws Exception {
-		if (accionSolicitada.equals(AccionSolicitada.NUEVO)) {
-			getDocenteService().registrar(docente);
-			enviarMensajeExitoso("Éxito", "Se registró!");
-		} else {
-			getDocenteService().actualizar(docente);
-			enviarMensajeExitoso("Éxito", "Se actualizó!");
-		}
-		
-		buscar();
-		return pantallaListado;
-	}
-
-	@Override
 	public String ver() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -70,9 +54,10 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String eliminar() throws Exception {
-		getDocenteService().eliminar(docente);
+		getCursoService().eliminar(curso);
 		buscar();
 		enviarMensajeExitoso("Éxito", "Se eliminó!");
+		
 		return null;
 	}
 
@@ -80,6 +65,22 @@ public class DocenteController extends BaseController implements GenericoControl
 	public String inactivar() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String guardar() throws Exception {
+		curso.setHorastotal(curso.getHorasteoria() + curso.getHoraslaboratorio());
+		if(accionSolicitada.equals(AccionSolicitada.NUEVO)){
+			getCursoService().registrar(curso);
+			enviarMensajeExitoso("Éxito", "Se registró");
+			
+			
+		}else{
+			getCursoService().actualizar(curso);
+			enviarMensajeExitoso("Éxito", "Se actualizó");
+		}
+		buscar();
+		return pantallaListado;
 	}
 
 	@Override
@@ -102,33 +103,24 @@ public class DocenteController extends BaseController implements GenericoControl
 
 	@Override
 	public String inicializarDatosMantenimiento() throws Exception {
-		listaDocente = getDocenteService().listarTodos();
-		listaSede = getSedeService().listarTodos();
+		listaCurso = getCursoService().listarTodos();
 		return null;
 	}
 
-	public List<Docente> getListaDocente() {
-		return listaDocente;
+	public List<Curso> getListaCurso() {
+		return listaCurso;
 	}
 
-	public void setListaDocente(List<Docente> listaDocente) {
-		this.listaDocente = listaDocente;
+	public void setListaCurso(List<Curso> listaCurso) {
+		this.listaCurso = listaCurso;
 	}
 
-	public Docente getDocente() {
-		return docente;
+	public Curso getCurso() {
+		return curso;
 	}
 
-	public void setDocente(Docente docente) {
-		this.docente = docente;
-	}
-
-	public List<Sede> getListaSede() {
-		return listaSede;
-	}
-
-	public void setListaSede(List<Sede> listaSede) {
-		this.listaSede = listaSede;
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	
 }

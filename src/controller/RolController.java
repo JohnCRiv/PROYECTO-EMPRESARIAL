@@ -20,8 +20,8 @@ public class RolController extends BaseController implements GenericoController 
 	private List<Enlace> listaEnlace;
 
 	public RolController() {
-		pantallaListado = "rol_listado";
-		pantallaMantenimiento = "rol_mantenimiento";
+		pantallaListado = "pretty:rol_listado";
+		pantallaMantenimiento = "pretty:rol_mantenimiento";
 	}
 
 	@Override

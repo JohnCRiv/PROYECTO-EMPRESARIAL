@@ -14,6 +14,18 @@
 			<basic name="descripcion">
 				<column name="descripcion" />
 			</basic>
+			<basic name="creditos">
+				<column name="creditos" />
+			</basic>
+			<basic name="horasteoria">
+				<column name="horasteoria" />
+			</basic>
+			<basic name="horaslaboratorio">
+				<column name="horaslaboratorio" />
+			</basic>
+			<basic name="horastotal">
+				<column name="horastotal" />
+			</basic>
 			<one-to-many name="alumnocurso">
 				<join-table name="alumno_curso">
 					<join-column name="idcurso" referenced-column-name="idcurso" />

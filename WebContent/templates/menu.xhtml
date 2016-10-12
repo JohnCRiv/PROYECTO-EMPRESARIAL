@@ -17,17 +17,19 @@
                                     <img src="#{request.contextPath}/assets/images/profile-menu-image.png" class="img-circle img-responsive" alt="" />
                                 </div>
                                 <div class="sidebar-profile-details">
-                                    <span>David Green<br/><small>Art Director</small></span>
+                                    <span>Jhon Cruzado<br/><small>Software Developer</small></span>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li><a onclick="return accion('btnEnlace')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Enlace</p></a></li>
-                        <li><a onclick="return accion('btnDocente')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Docente</p></a></li>
-                        <li><a onclick="return accion('btnAlumno')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Alumno</p></a></li>
-                        <li><a onclick="return accion('btnRol')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Rol</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
+                    	<li><a onclick="return accion('btnSede')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Sede</p></a></li>
+                        <li><a onclick="return accion('btnDocente')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-pencil"></span><p>Docentes</p></a></li>
+                        <li><a onclick="return accion('btnCurso')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-book"></span><p>Cursos</p></a></li>
+                        <li><a onclick="return accion('btnAlumno')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-education"></span><p>Alumnos</p></a></li>
+                        <li><a onclick="return accion('btnEnlace')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-link"></span><p>Enlaces</p></a></li>
+                        <li><a onclick="return accion('btnRol')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-tag"></span><p>Roles</p></a></li>
+                        <li><a onclick="return accion('btnUsuario')" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Usuarios</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>
@@ -49,12 +51,33 @@
 				
 			<p:commandButton id="btnRol" immediate="true"
 				action="#{rolController.init}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
 				style="display:none" />
 				
 			<p:commandButton id="btnAlumno" immediate="true"
 				action="#{alumnoController.init}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
+				style="display:none" />
+				
+			<p:commandButton id="btnSede" immediate="true"
+				action="#{sedeController.init}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
+				style="display:none" />
+				
+			<p:commandButton id="btnUsuario" immediate="true"
+				action="#{usuarioController.init()}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
 				style="display:none" />
             
+            <p:commandButton id="btnCurso" immediate="true"
+				action="#{cursoController.init()}"
+				onstart="PF('bUI').block()"
+				oncomplete="PF('bUI').unblock()"
+				style="display:none" />
             
     </h:form>
     

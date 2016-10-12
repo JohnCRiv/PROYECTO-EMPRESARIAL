@@ -8,34 +8,78 @@
 		
 		<navigation-case>
 			<from-outcome>enlace_listado</from-outcome>
-			<to-view-id>/pages/enlace_listado.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/enlace/enlace_listado.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>enlace_mantenimiento</from-outcome>
-			<to-view-id>/pages/enlace_mantenimiento.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/enlace/enlace_mantenimiento.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>docente_listado</from-outcome>
-			<to-view-id>/pages/docente_listado.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/docente/docente_listado.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>docente_mantenimiento</from-outcome>
-			<to-view-id>/pages/docente_mantenimiento.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/docente/docente_mantenimiento.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>rol_listado</from-outcome>
-			<to-view-id>/pages/rol_listado.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/rol/rol_listado.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>rol_mantenimiento</from-outcome>
-			<to-view-id>/pages/rol_mantenimiento.xhtml</to-view-id>
+			<to-view-id>/pages/maestros/rol/rol_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>sede_listado</from-outcome>
+			<to-view-id>/pages/maestros/sede/sede_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sede_mantenimiento</from-outcome>
+			<to-view-id>/pages/maestros/sede/sede_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>usuario_listado</from-outcome>
+			<to-view-id>/pages/maestros/usuario/usuario_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>usuario_mantenimiento</from-outcome>
+			<to-view-id>/pages/maestros/usuario/usuario_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>alumno_listado</from-outcome>
+			<to-view-id>/pages/maestros/alumno/alumno_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alumno_mantenimiento</from-outcome>
+			<to-view-id>/pages/maestros/alumno/alumno_mantenimiento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>curso_listado</from-outcome>
+			<to-view-id>/pages/maestros/curso/curso_listado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>curso_mantenimiento</from-outcome>
+			<to-view-id>/pages/maestros/curso/curso_mantenimiento.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		

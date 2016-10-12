@@ -8,6 +8,10 @@ public class Curso {
 
 	private CursoPK pk;
 	private String descripcion;
+	private Integer creditos;
+	private Integer horasteoria;
+	private Integer horaslaboratorio;
+	private Integer horastotal;
 	private List<AlumnoCurso> alumnocurso;
 	private List<CursoExamen> cursoexamen;
 	private List<CursoPregunta> cursopregunta;
@@ -30,6 +34,38 @@ public class Curso {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	
+	public Integer getCreditos() {
+		return creditos;
+	}
+
+	public void setCreditos(Integer creditos) {
+		this.creditos = creditos;
+	}
+
+	public Integer getHorasteoria() {
+		return horasteoria;
+	}
+
+	public void setHorasteoria(Integer horasteoria) {
+		this.horasteoria = horasteoria;
+	}
+
+	public Integer getHoraslaboratorio() {
+		return horaslaboratorio;
+	}
+
+	public void setHoraslaboratorio(Integer horaslaboratorio) {
+		this.horaslaboratorio = horaslaboratorio;
+	}
+
+	public Integer getHorastotal() {
+		return horastotal;
+	}
+
+	public void setHorastotal(Integer horastotal) {
+		this.horastotal = horastotal;
 	}
 
 	public List<AlumnoCurso> getAlumnocurso() {

@@ -15,13 +15,73 @@
 	</url-mapping>
 	
 	<url-mapping id="enlace_listado">
-		<pattern value="/enlace_listado" />
-		<view-id value="/pages/enlace_listado.xhtml" />
+		<pattern value="/enlace/listado" />
+		<view-id value="/pages/maestros/enlace/enlace_listado.xhtml" />
 	</url-mapping>
 	
 	<url-mapping id="enlace_mantenimiento">
-		<pattern value="/enlace_mantenimiento" />
-		<view-id value="/pages/enlace_mantenimiento.xhtml" />
+		<pattern value="/enlace/mantenimiento" />
+		<view-id value="/pages/maestros/enlace/enlace_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="docente_listado">
+		<pattern value="/docente/listado" />
+		<view-id value="/pages/maestros/docente/docente_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="docente_mantenimiento">
+		<pattern value="/docente/mantenimiento" />
+		<view-id value="/pages/maestros/docente/docente_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="rol_listado">
+		<pattern value="/rol/listado" />
+		<view-id value="/pages/maestros/rol/rol_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="rol_mantenimiento">
+		<pattern value="/rol/mantenimiento" />
+		<view-id value="/pages/maestros/rol/rol_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="sede_listado">
+		<pattern value="/sede/listado" />
+		<view-id value="/pages/maestros/sede/sede_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="sede_mantenimiento">
+		<pattern value="/sede/mantenimiento" />
+		<view-id value="/pages/maestros/sede/sede_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="usuario_listado">
+		<pattern value="/usuario/listado" />
+		<view-id value="/pages/maestros/usuario/usuario_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="usuario_mantenimiento">
+		<pattern value="/usuario/mantenimiento" />
+		<view-id value="/pages/maestros/usuario/usuario_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="alumno_listado">
+		<pattern value="/alumno/listado" />
+		<view-id value="/pages/maestros/alumno/alumno_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="alumno_mantenimiento">
+		<pattern value="/alumno/mantenimiento" />
+		<view-id value="/pages/maestros/alumno/alumno_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="curso_listado">
+		<pattern value="/curso/listado" />
+		<view-id value="/pages/maestros/curso/curso_listado.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="curso_mantenimiento">
+		<pattern value="/curso/mantenimiento" />
+		<view-id value="/pages/maestros/curso/curso_mantenimiento.xhtml" />
 	</url-mapping>
 
 </pretty-config>

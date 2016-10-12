@@ -15,37 +15,37 @@ $( document ).ready(function() {
     var fullScreenButton = document.getElementsByClassName("toggle-fullscreen"); 
 
     //Activate click listener
-for (var i = 0; i < fullScreenButton.length; i++) {
-    fullScreenButton[i].addEventListener("click", function () {
-
-        //Toggle fullscreen off, activate it
-        if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen(); // Firefox
-            } else if (document.documentElement.webkitRequestFullscreen) {
-                document.documentElement.webkitRequestFullscreen(); // Chrome and Safari
-            } else if (document.documentElement.msRequestFullscreen) {
-                document.documentElement.msRequestFullscreen(); // IE
-            }
-
-        //Toggle fullscreen on, exit fullscreen
-        } else {
-
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            }
-        }
-
-    });
-};
+	for (var i = 0; i < fullScreenButton.length; i++) {
+	    fullScreenButton[i].addEventListener("click", function () {
+	
+	        //Toggle fullscreen off, activate it
+	        if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+	            if (document.documentElement.requestFullscreen) {
+	                document.documentElement.requestFullscreen();
+	            } else if (document.documentElement.mozRequestFullScreen) {
+	            document.documentElement.mozRequestFullScreen(); // Firefox
+	            } else if (document.documentElement.webkitRequestFullscreen) {
+	                document.documentElement.webkitRequestFullscreen(); // Chrome and Safari
+	            } else if (document.documentElement.msRequestFullscreen) {
+	                document.documentElement.msRequestFullscreen(); // IE
+	            }
+	
+	        //Toggle fullscreen on, exit fullscreen
+	        } else {
+	
+	            if (document.exitFullscreen) {
+	                document.exitFullscreen();
+	            } else if (document.msExitFullscreen) {
+	                document.msExitFullscreen();
+	            } else if (document.mozCancelFullScreen) {
+	                document.mozCancelFullScreen();
+	            } else if (document.webkitExitFullscreen) {
+	                document.webkitExitFullscreen();
+	            }
+	        }
+	
+	    });
+	};
     
     
     // Waves
