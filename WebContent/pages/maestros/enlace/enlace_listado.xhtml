@@ -12,14 +12,7 @@
 	<ui:define name="content">
 	
 				<div class="page-title">
-                    <h3>Form Elements</h3>
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Form Elements</li>
-                        </ol>
-                    </div>
+                    <h3>Enlaces</h3>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -30,7 +23,7 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
-	                                    <h4 class="panel-title">Form Elements</h4>
+	                                    <h4 class="panel-title">Lista de Enlaces</h4>
 	                                    <div class="form-group text-right m-b-0">
 													<mp:button action="#{enlaceController.nuevo()}" value="Nuevo" />
 												</div>
@@ -39,21 +32,21 @@
 	                                    <p:dataTable emptyMessage="No existen registros" id="tblEnlace"
 	                                    	scrollable="true" scrollWidth="1050" style="margin-top:20px;"
 	                                    	value="#{enlaceController.listaEnlace}" var="var" >
-	                                    	<p:column headerText="ID ENLACE" width="50">
+	                                    	<p:column headerText="ID ENLACE" >
 												<h:outputText value="#{var.pk.idenlace}" />
 											</p:column>
-											<p:column headerText="DESCRIPCION" width="150">
+											<p:column headerText="DESCRIPCION" >
 												<h:outputText value="#{var.descripcion}" />
 											</p:column>
-											<p:column headerText="RUTA" width="50">
+											<p:column headerText="RUTA" >
 												<h:outputText value="#{var.ruta}" />
 											</p:column>
-											<p:column headerText="ICONO" width="50">
+											<p:column headerText="ICONO" >
 												<h:outputText value="#{var.icono}" />
 											</p:column>
-											<p:column headerText="ACCIONES" width="30">
-												<p:panelGrid columns="3" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+											<p:column headerText="ACCIONES" >
+												<p:panelGrid columns="2" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-6,ui-grid-col-6"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{enlaceController.editar()}" >
@@ -62,7 +55,6 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer></p:spacer>
 													<p:commandLink immediate="true" title="Eliminar" 
 														action="#{enlaceController.eliminar()}" update="tblEnlace">
 														<f:setPropertyActionListener value="#{var}" 

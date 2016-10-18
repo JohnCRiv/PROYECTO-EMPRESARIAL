@@ -12,4 +12,10 @@ public class CursoPK {
 		this.idcurso = idcurso;
 	}
 	
+	public CursoPK() {}
+	
+	public CursoPK(Integer idcurso) {
+		this.idcurso = idcurso;
+	}
+	
 }

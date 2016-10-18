@@ -1,6 +1,9 @@
 package servicio.impl;
 
+import java.util.List;
+
 import bean.Enlace;
+import bean.Rol;
 import dao.EnlaceDao;
 import factory.Factory;
 import generico.GenericoServiceImpl;
@@ -22,6 +25,11 @@ public class EnlaceServiceImpl extends GenericoServiceImpl<Enlace> implements En
 			service = new EnlaceServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public List<Enlace> obtenerEnlacesPorRol(Rol rol) {
+		return dao.obtenerEnlacesPorRol(rol);
 	}
 	
 }

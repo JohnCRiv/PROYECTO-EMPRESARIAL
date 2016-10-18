@@ -1,6 +1,7 @@
 package bean;
 
 import java.util.Date;
+import java.util.List;
 
 import bean.pk.DocentePK;
 
@@ -13,6 +14,7 @@ public class Docente {
 	private String numerodocumento;
 	private Date fechanacimiento;
 	private Sede sede;
+	private List<DocenteCurso> docentecurso;
 
 	public Docente() {
 		pk = new DocentePK();
@@ -74,5 +76,17 @@ public class Docente {
 	public void setSede(Sede sede) {
 		this.sede = sede;
 	}
+	
+	public String getNombresCompletos() {
+		return this.nombres + " " + this.apellidopaterno + " " + apellidomaterno;
+	}
 
+	public List<DocenteCurso> getDocentecurso() {
+		return docentecurso;
+	}
+
+	public void setDocentecurso(List<DocenteCurso> docentecurso) {
+		this.docentecurso = docentecurso;
+	}
+	
 }

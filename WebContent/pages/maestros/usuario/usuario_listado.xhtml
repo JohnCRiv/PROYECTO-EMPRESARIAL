@@ -12,14 +12,7 @@
 	<ui:define name="content">
 	
 				<div class="page-title">
-                    <h3>Form Elements</h3>
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Form Elements</li>
-                        </ol>
-                    </div>
+                    <h3>Usuarios</h3>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -30,37 +23,37 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
-	                                    <h4 class="panel-title">Form Elements</h4>
+	                                    <h4 class="panel-title">Lista de Usuarios</h4>
 	                                    <div class="form-group text-right m-b-0">
 													<mp:button action="#{usuarioController.nuevo()}" value="Nuevo" />
 												</div>
 	                                </div>
 	                                <div class="panel-body" >
 	                                    <p:dataTable emptyMessage="No existen registros" id="tblusuario"
-	                                       scrollWidth="1000" scrollable="true"
+	                                       scrollWidth="1050" scrollable="true"
 	                                    	value="#{usuarioController.listaUsuario}" var="var" >
-	                                    	<p:column headerText="ID USUARIO" width="20">
+	                                    	<p:column headerText="ID USUARIO" >
 												<h:outputText value="#{var.pk.idusuario}" />
 											</p:column>
-											<p:column headerText="NOMBRES" width="50">
+											<p:column headerText="NOMBRES" >
 												<h:outputText value="#{var.nombres}" />
 											</p:column>
-											<p:column headerText="APELLIDO PATERNO" width="50">
+											<p:column headerText="APELLIDO PATERNO" >
 												<h:outputText value="#{var.apellidopaterno}" />
 											</p:column>
-											<p:column headerText="APELLIDO MATERNO" width="50">
+											<p:column headerText="APELLIDO MATERNO" >
 												<h:outputText value="#{var.apellidomaterno}" />
 											</p:column>
-											<p:column headerText="NUMERO DNI" width="30">
+											<p:column headerText="NUMERO DNI" >
 												<h:outputText value="#{var.numerodocumento}" />
 											</p:column>
-											<p:column headerText="ROL" width="40">
+											<p:column headerText="ROL" >
 												<h:outputText value="#{var.rol.rol}" />
 											</p:column>
 											
-											<p:column headerText="ACCIONES" width="30">
-												<p:panelGrid columns="3" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+											<p:column headerText="ACCIONES" >
+												<p:panelGrid columns="2" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-6,ui-grid-col-6"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{usuarioController.editar()}" >
@@ -69,7 +62,6 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer />
 													<p:commandLink immediate="true" title="Eliminar" 
 														action="#{usuarioController.eliminar()}" update="tblusuario">
 														<f:setPropertyActionListener value="#{var}" 

@@ -38,9 +38,9 @@ public class RolController extends BaseController implements GenericoController 
 
 	@Override
 	public String nuevo() throws Exception {
+		setAccionSolicitada(AccionSolicitada.NUEVO);
 		rol = new Rol();
 		reiniciarListaEnlace();
-		setAccionSolicitada(AccionSolicitada.NUEVO);
 		return pantallaMantenimiento;
 	}
 
@@ -48,27 +48,21 @@ public class RolController extends BaseController implements GenericoController 
 	public String editar() throws Exception {
 		setAccionSolicitada(AccionSolicitada.EDITAR);
 		reiniciarListaEnlace();
-		List<RolEnlace> listaRolEnlace = rol.getRolenlace();
-		for (RolEnlace rolEnlace : listaRolEnlace) {
-			for (Enlace enlace : listaEnlace) {
-				if (rolEnlace.getPk().getIdenlace().equals(enlace.getPk().getIdenlace()))
-					enlace.setSeleccionado(true);
-			}
-		}
+		List<RolEnlace> listaRolEnlace = getRolEnlaceService().obtenerRolEnlacePorRol(rol);
+		for (RolEnlace rolEnlace : listaRolEnlace) 
+			for (Enlace enlace : listaEnlace) 
+				if (rolEnlace.getPk().getIdenlace().equals(enlace.getPk().getIdenlace())) 
+					enlace.setSeleccionado(true);	
 		return pantallaMantenimiento;
 	}
 
 	@Override
 	public String guardar() throws Exception {
 		if (accionSolicitada.equals(AccionSolicitada.NUEVO)) {
-			getRolService().registrar(rol);
-			Rol ultimoRol = getRolService().obtenerRolMaxID();
-			getRolEnlaceService().registrarRolEnlace(ultimoRol, listaEnlace);
+			getRolService().registrarRol(rol, listaEnlace);
 			enviarMensajeExitoso("Exito", "Se registró");
 		} else {
-			getRolService().actualizar(rol);
-			getRolEnlaceService().eliminarSegunRol(rol);
-			getRolEnlaceService().registrarRolEnlace(rol, listaEnlace);
+			getRolService().actualizarRol(rol, listaEnlace);
 			enviarMensajeExitoso("Exito", "Se Actualizó");
 		}
 		buscar();

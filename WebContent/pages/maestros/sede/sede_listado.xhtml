@@ -12,14 +12,7 @@
 	<ui:define name="content">
 	
 				<div class="page-title">
-                    <h3>Form Elements</h3>
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Form Elements</li>
-                        </ol>
-                    </div>
+                    <h3>Sedes</h3>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -30,7 +23,7 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
-	                                    <h4 class="panel-title">Form Elements</h4>
+	                                    <h4 class="panel-title">Lista de Sedes</h4>
 	                                    <div class="form-group text-right m-b-0">
 													<mp:button action="#{sedeController.nuevo()}" value="Nuevo"  />
 													<br></br>												</div>
@@ -39,19 +32,19 @@
 	                                    <p:dataTable emptyMessage="No existen registros" id="tblSede"
 	                                    	scrollWidth="1050" scrollable="true"
 	                                    	value="#{sedeController.listaSede}" var="var" >
-	                                    	<p:column headerText="ID SEDE" width="25" >
+	                                    	<p:column headerText="ID SEDE"  >
 												<h:outputText value="#{var.pk.idsede}" />
 											</p:column>
-											<p:column headerText="NOMBRE" width="80">
+											<p:column headerText="NOMBRE" >
 												<h:outputText value="#{var.nombre}" />
 											</p:column>
-											<p:column headerText="DIRECCIÓN" width="50">
+											<p:column headerText="DIRECCIÓN" >
 												<h:outputText value="#{var.direccion}" />
 											</p:column>
-											<p:column headerText="TELEFONO" width="50">
+											<p:column headerText="TELEFONO" >
 												<h:outputText value="#{var.telefono}" />
 											</p:column>
-											<p:column headerText="REPRESENTANTE" width="50">
+											<p:column headerText="REPRESENTANTE" >
 												<h:outputText value="#{var.representante}" />
 											</p:column>
 											<p:column headerText="FECHA DE INAGURACION" >
@@ -59,9 +52,9 @@
 													<f:convertDateTime pattern="dd/MM/yyyy" />
 												</h:outputText>
 											</p:column>
-											<p:column headerText="ACCIONES" width="40">
-												<p:panelGrid columns="3" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+											<p:column headerText="ACCIONES" >
+												<p:panelGrid columns="2" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-6,ui-grid-col-6"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{sedeController.editar()}" >
@@ -70,7 +63,6 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer />
 													<p:commandLink immediate="true" title="Eliminar" 
 														action="#{sedeController.eliminar()}" update="tblSede">
 														<f:setPropertyActionListener value="#{var}" 

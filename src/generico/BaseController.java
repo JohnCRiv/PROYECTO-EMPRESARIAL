@@ -252,11 +252,11 @@ public abstract class BaseController {
 		return (UsuarioActual) this.getSessionValue(Constantes.USUARIO_ACTUAL);
 	}
 	
-	protected AccionSolicitada getAccionPantalla() {
+	public AccionSolicitada getAccionSolicitada() {
 		return accionSolicitada;
 	}
 	
-	protected void setAccionSolicitada(AccionSolicitada accionSolicitada) {
+	public void setAccionSolicitada(AccionSolicitada accionSolicitada) {
 		this.accionSolicitada = accionSolicitada;
 	}
 	

@@ -12,14 +12,7 @@
 	<ui:define name="content">
 	
 				<div class="page-title">
-                    <h3>Form Elements</h3>
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Form Elements</li>
-                        </ol>
-                    </div>
+                    <h3>Cursos</h3>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -30,7 +23,7 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
-	                                    <h4 class="panel-title">Form Elements</h4>
+	                                    <h4 class="panel-title">Lista de Cursos</h4>
 	                                    <div class="form-group text-right m-b-0">
 													<mp:button action="#{cursoController.nuevo()}" value="Nuevo" />
 												</div>
@@ -39,34 +32,34 @@
 	                                    <p:dataTable emptyMessage="No existen registros" id="tblCurso"
 	                                    	scrollable="true" scrollWidth="1050" style="margin-top:20px;"
 	                                    	value="#{cursoController.listaCurso}" var="var" >
-	                                    	<p:column headerText="ID CURSO" width="20" >
+	                                    	<p:column headerText="ID CURSO"  >
 	                                    		<h:outputText value="#{var.pk.idcurso}" />												
 											</p:column>
 											
-											<p:column headerText="DESCRIPCIÓN" width="80" >
+											<p:column headerText="DESCRIPCIÓN"  >
 												<h:outputText value="#{var.descripcion}" />												
 											</p:column>
 										
-											<p:column headerText="CREDITOS" width="50" >
+											<p:column headerText="CREDITOS"  >
 												<h:outputText value="#{var.creditos}" />
 											</p:column>
 											
-											<p:column headerText="HORAS TEORIA" width="50" >
+											<p:column headerText="HORAS TEORIA"  >
 												<h:outputText value="#{var.horasteoria}" />
 												 
 											</p:column>
 											
-											<p:column headerText="HORAS LABORATORIO" width="50" >
+											<p:column headerText="HORAS LABORATORIO" >
 												<h:outputText value="#{var.horaslaboratorio}" />
 											</p:column>
 											
-											<p:column headerText="HORAS TOTAL" width="50" >
+											<p:column headerText="HORAS TOTAL"  >
 												<h:outputText value="#{var.horastotal}" />
 											</p:column>
 											
-											<p:column headerText="ACCIONES" width="30" >
-												<p:panelGrid columns="3" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+											<p:column headerText="ACCIONES"  >
+												<p:panelGrid columns="2" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-6,ui-grid-col-6"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{cursoController.editar()}" >
@@ -75,7 +68,6 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer />
 													<p:commandLink immediate="true" title="Eliminar"
 														action="#{cursoController.eliminar()}" update="tblCurso">
 														<f:setPropertyActionListener value="#{var}" 

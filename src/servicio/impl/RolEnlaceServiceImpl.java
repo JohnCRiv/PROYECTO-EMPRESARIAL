@@ -37,5 +37,10 @@ public class RolEnlaceServiceImpl extends GenericoServiceImpl<RolEnlace> impleme
 	public void registrarRolEnlace(Rol rol, List<Enlace> listaEnlaces) {
 		dao.registrarRolEnlace(rol, listaEnlaces);
 	}
+
+	@Override
+	public List<RolEnlace> obtenerRolEnlacePorRol(Rol rol) {
+		return dao.obtenerRolEnlacePorRol(rol);
+	}
 	
 }

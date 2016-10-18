@@ -33,7 +33,7 @@
 						<li><a href="javascript:void(0);"
 							class="waves-effect waves-button waves-classic show-search"><i
 								class="fa fa-search"></i></a></li>
-						<li><a href="login.html"
+						<li><a onclick="return cerrarSesion('btnCerrarSesion')"
 							class="log-out waves-effect waves-button waves-classic"> <span><i
 									class="fa fa-sign-out m-r-xs"></i>Cerrar Sesión</span>
 						</a></li>
@@ -44,6 +44,15 @@
 			</div>
 		</div>
 	</div>
+	<h:form id="formHeader">
+    	<p:commandButton id="btnCerrarSesion" action="#{loginController.cerrarSesion()}" style="display:none" />
+    </h:form>
+    
+    <script type="text/javascript">
+	    function cerrarSesion(id) {
+			document.getElementById('formHeader:' + id + '').click();
+		}
+    </script>
 	<!-- Navbar -->
 	<mp:icon name="" />
 </ui:composition>

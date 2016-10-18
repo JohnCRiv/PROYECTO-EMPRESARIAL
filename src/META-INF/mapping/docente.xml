@@ -30,6 +30,11 @@
 			<many-to-one name="sede">
            		<join-column name="idsede" referenced-column-name="idsede" />
            	</many-to-one>
+           	<one-to-many name="docentecurso">
+				<join-table name="docente_curso">
+					<join-column name="iddocente" referenced-column-name="iddocente" />
+				</join-table>
+			</one-to-many>
 		</attributes>
 	</entity>
 

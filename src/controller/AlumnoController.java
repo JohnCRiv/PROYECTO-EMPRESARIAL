@@ -48,6 +48,8 @@ public class AlumnoController extends BaseController implements GenericoControll
 
 	@Override
 	public String guardar() throws Exception {
+		System.out.println("Fecha : " + alumno.getFechanacimiento());
+		System.out.println("Doc : " + alumno.getNumerodocumento());
 		if(accionSolicitada.equals(AccionSolicitada.NUEVO)){
 			alumno.getPk().setIdalumno("ALU-" + alumno.getNumerodocumento());
 			getAlumnoService().registrar(alumno);

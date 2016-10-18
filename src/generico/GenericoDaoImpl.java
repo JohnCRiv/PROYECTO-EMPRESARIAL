@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import util.Constantes;
 import util.Parametro;
+import static util.Validador.*;
 
 public class GenericoDaoImpl<T> implements GenericoDao<T> {
 	
@@ -21,40 +22,48 @@ public class GenericoDaoImpl<T> implements GenericoDao<T> {
 	
 	@SuppressWarnings("unchecked")
 	protected GenericoDaoImpl() {
-		entityManagerFactory = Persistence.createEntityManagerFactory(Constantes.PERSISTENCE_UNIT);
-		entityManager = entityManagerFactory.createEntityManager();
 		clazz = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 	
 	@Override
 	public void registrar(T bean) {
+		openConnection();
 		entityManager.getTransaction().begin();
 		entityManager.persist(bean);
 		entityManager.getTransaction().commit();
+		closeConnection();
 	}
 	
 	@Override
 	public void actualizar(T bean) {
+		openConnection();
 		entityManager.getTransaction().begin();
 		entityManager.merge(bean);
 		entityManager.getTransaction().commit();
+		closeConnection();
 	}
 	
 	@Override
 	public T buscar(Object pk) {
-		return entityManager.find(clazz, pk);
+		openConnection();
+		T bean = entityManager.find(clazz, pk);
+		closeConnection();
+		return bean;
 	}
 	
 	@Override
 	public void eliminar(T bean) {
+		openConnection();
 		entityManager.getTransaction().begin();
-		entityManager.remove(bean);
+		entityManager.remove(entityManager.merge(bean));
 		entityManager.getTransaction().commit();
+		closeConnection();
 	}
 	
 	@Override
 	public List<T> listarTodos() {
+		openConnection();
 		CriteriaBuilder criteria = entityManager.getCriteriaBuilder();
 		CriteriaQuery<T> query = criteria.createQuery(clazz);
 		TypedQuery<T> list = entityManager.createQuery(query);
@@ -63,6 +72,7 @@ public class GenericoDaoImpl<T> implements GenericoDao<T> {
 	
 	@Override
 	public List<T> listarPorQuery(String query) {
+		openConnection();
 		TypedQuery<T> typedQuery = entityManager.createQuery(query, clazz);
 		return typedQuery.getResultList();
 	}
@@ -74,6 +84,7 @@ public class GenericoDaoImpl<T> implements GenericoDao<T> {
 	
 	@Override
 	public List<T> listarPorWhereQuery(String whereQuery, List<Parametro> parametros) {
+		openConnection();
 		String prefixQuery = "SELECT entity FROM " + clazz.getSimpleName() + " entity where ";
 		TypedQuery<T> query = entityManager.createQuery(prefixQuery + whereQuery, clazz);
 		if (parametros != null) {
@@ -86,7 +97,22 @@ public class GenericoDaoImpl<T> implements GenericoDao<T> {
 	
 	@Override
 	public CriteriaBuilder getCriteriaBuilder() {
-		return entityManager.getCriteriaBuilder();
+		openConnection();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		closeConnection();
+		return criteriaBuilder;
+	}
+	
+	private void openConnection() {
+		entityManagerFactory = Persistence.createEntityManagerFactory(Constantes.PERSISTENCE_UNIT);
+		entityManager = entityManagerFactory.createEntityManager();
+	}
+	
+	private void closeConnection() {
+		if (!esNulo(entityManager))
+			entityManager.close();
+		if (!esNulo(entityManagerFactory))
+			entityManagerFactory.close();
 	}
 	
 }

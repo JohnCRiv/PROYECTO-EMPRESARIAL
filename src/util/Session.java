@@ -5,14 +5,9 @@ import javax.servlet.http.HttpSession;
 
 public abstract class Session {
 	
-	private static HttpSession httpSession;
-	
-	public Session() {
-		httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-	}
+	private static final HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	
 	public static void setSessionValue(String key, Object value) {
-		httpSession.removeAttribute(key);
 		httpSession.setAttribute(key, value);
 	}
 	

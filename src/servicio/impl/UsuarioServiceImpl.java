@@ -23,5 +23,10 @@ public class UsuarioServiceImpl extends GenericoServiceImpl<Usuario> implements 
 		
 		return service;
 	}
+
+	@Override
+	public Usuario iniciarSesion(String usuario, String clave) {
+		return dao.iniciarSesion(usuario, clave);
+	}
 	
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.primefaces.model.UploadedFile;
+
 import bean.Rol;
 import bean.Usuario;
 import generico.BaseController;
@@ -16,6 +18,7 @@ public class UsuarioController extends BaseController implements GenericoControl
 	private List<Usuario> listaUsuario;
 	private Usuario usuario;
 	private List<Rol> listaRol;
+	private UploadedFile file;
 
 	public UsuarioController(){
 		pantallaListado = "pretty:usuario_listado";
@@ -128,6 +131,14 @@ public class UsuarioController extends BaseController implements GenericoControl
 
 	public void setListaRol(List<Rol> listaRol) {
 		this.listaRol = listaRol;
+	}
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
 	}
 
 }

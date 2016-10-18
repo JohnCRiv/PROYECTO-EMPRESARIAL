@@ -29,6 +29,12 @@ public class RolEnlaceDaoImpl extends GenericoDaoImpl<RolEnlace> implements RolE
 			}
 		}
 	}
+
+	@Override
+	public List<RolEnlace> obtenerRolEnlacePorRol(Rol rol) {
+		List<RolEnlace> listaRolEnlace = this.listarPorWhereQuery("entity.pk.idrol = " + rol.getPk().getIdrol());
+		return listaRolEnlace;
+	}
 	
 	
 }

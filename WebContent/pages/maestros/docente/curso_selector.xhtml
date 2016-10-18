@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material">
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" id="myLargeModalLabel">Cursos</h4>
+				</div>
+				<div class="modal-body">
+					<p:dataTable id="tblCursos"
+						emptyMessage="No existen cursos"
+						scrollWidth="1050"
+						scrollable="true" style="margin-top:20px;"
+						value="#{docenteController.listaCursos}" var="var">
+						<p:column headerText="ID CURSO" >
+							<h:outputText value="#{var.pk.idcurso}" />
+						</p:column>
+						<p:column headerText="DESCRIPCIÓN" >
+							<h:outputText value="#{var.descripcion}" />
+						</p:column>
+						<p:column headerText="CRÉDITOS" >
+							<h:outputText value="#{var.creditos}" />
+						</p:column>
+						<p:column headerText="SELECCIONAR" >
+							<p:panelGrid columns="1" style="border-spacing:0px;"
+								columnClasses="ui-grid-col-12" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:commandLink immediate="true" title="Agregar"
+									action="#{docenteController.agregarCurso()}"
+									update="formAsignar:tblDocenteCursos">
+									<f:setPropertyActionListener value="#{var}"
+										target="#{docenteController.curso}" />
+									<h:graphicImage value="/assets/images/check.png" 
+										width="16" height="16" />
+								</p:commandLink>
+							</p:panelGrid>
+						</p:column>
+					</p:dataTable>
+				</div>
+			</div>
+		</div>
+	</div>
+</ui:composition>

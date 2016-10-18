@@ -8,4 +8,7 @@ public class Constantes {
 	public static final String SI = "S";
 	public static final String NO = "N";
 	
+	public static final String LOGIN = "pretty:login";
+	public static final String BIENVENIDA = "pretty:bienvenida";
+	
 }

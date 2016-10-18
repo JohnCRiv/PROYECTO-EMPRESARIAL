@@ -13,4 +13,6 @@ public interface RolEnlaceDao extends GenericoDao<RolEnlace> {
 	
 	public void registrarRolEnlace(Rol rol, List<Enlace> listaEnlaces);
 	
+	public List<RolEnlace> obtenerRolEnlacePorRol(Rol rol);
+	
 }

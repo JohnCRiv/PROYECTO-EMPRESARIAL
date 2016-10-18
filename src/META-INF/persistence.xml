@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
-    <persistence-unit name="EnterpriseProject" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="EnterpriseProject" >
     	
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         
@@ -31,8 +31,8 @@
           	<property name="javax.persistence.jdbc.url"    	 value="jdbc:mysql://localhost:3306/aulavirtual" />
    			<property name="javax.persistence.jdbc.user"	 value="root" />
    			<property name="javax.persistence.jdbc.password" value="desarrollont,." />
-   			<property name="eclipselink.allow-zero-id" 		 value="true" />
    			<property name="eclipselink.id-validation" 		 value="NONE" />
+   			<property name="eclipselink.allow-zero-id" 		 value="true" />
 		</properties>
         
     </persistence-unit>

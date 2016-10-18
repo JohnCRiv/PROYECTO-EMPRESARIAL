@@ -5,12 +5,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:mp="http://primefaces.org/ui/material">
+	xmlns:pe="http://primefaces.org/ui/extensions">
 	
 	<h:head>
 		<meta charset="utf-8" />
-		<title>Proyecto Empresarial</title>
+		<title>Aula Virtual</title>
 		<meta name="author" content="Jhon Angel Cruzado Rivera" />
 		<meta name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -22,6 +21,9 @@
         <link href="#{request.contextPath}/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
         <link href="#{request.contextPath}/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>	
         <link href="#{request.contextPath}/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>
         
         <link href="#{request.contextPath}/assets/css/modern.css" rel="stylesheet" type="text/css"/>
         <link href="#{request.contextPath}/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css"/>
@@ -111,10 +113,34 @@
 				text-align: center;
 			}
 			
+			.modal {
+			    position: fixed;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    z-index: 1050;
+			    display: none;
+			    overflow: hidden;
+			    -webkit-overflow-scrolling: touch;
+			    outline: 0;
+			    background-color: #fafafa00;
+			    max-height: none;
+			    width: 100%;
+			}
+			
+			.modal .modal-footer {
+				background-color: white;
+			}
+			
+			.ui-widget {
+				max-width: 1050px;
+			}
+			
 		</style>
         
 <!--         <script src="#{request.contextPath}/assets/plugins/jquery/jquery-2.1.4.min.js"></script> -->
-<!--         <script src="#{request.contextPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->
+        <script src="#{request.contextPath}/assets/plugins/bootstrap/js/bootstrap.js"></script>
         <script src="#{request.contextPath}/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
         <script src="#{request.contextPath}/assets/plugins/pace-master/pace.min.js"></script>
         <script src="#{request.contextPath}/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
@@ -134,7 +160,6 @@
         <script src="#{request.contextPath}/assets/plugins/notifyjs/js/notify.js"></script>
         <script src="#{request.contextPath}/assets/plugins/notifications/notify-metro.js"></script>
         <script src="#{request.contextPath}/assets/js/jquery.core.js"></script>
-		
 		
 	</h:body>
 

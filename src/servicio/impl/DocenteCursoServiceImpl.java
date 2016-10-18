@@ -1,5 +1,9 @@
 package servicio.impl;
 
+import java.util.List;
+
+import bean.Curso;
+import bean.Docente;
 import bean.DocenteCurso;
 import dao.DocenteCursoDao;
 import factory.Factory;
@@ -22,6 +26,16 @@ public class DocenteCursoServiceImpl extends GenericoServiceImpl<DocenteCurso> i
 			service = new DocenteCursoServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public List<Curso> obtenerCursosAsignados(Docente docente) {
+		return dao.obtenerCursosAsignados(docente);
+	}
+
+	@Override
+	public void eliminarCursosAsignados(Docente docente) {
+		dao.eliminarCursosAsignados(docente);
 	}
 	
 }

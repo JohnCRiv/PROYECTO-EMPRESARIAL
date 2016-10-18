@@ -12,14 +12,7 @@
 	<ui:define name="content">
 		
 				<div class="page-title">
-                    <h3>Form Elements</h3>
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Form Elements</li>
-                        </ol>
-                    </div>
+                    <h3>Roles</h3>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -30,7 +23,7 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
-	                                    <h4 class="panel-title">Form Elements</h4>
+	                                    <h4 class="panel-title">Lista de Roles</h4>
 	                                    <div class="form-group text-right m-b-0">
 													<mp:button action="#{rolController.nuevo()}" value="Nuevo" />
 												</div>
@@ -45,8 +38,8 @@
 												<h:outputText value="#{var.rol}" />
 											</p:column>
 											<p:column headerText="ACCIONES">
-												<p:panelGrid columns="3" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
+												<p:panelGrid columns="2" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-6,ui-grid-col-6"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{rolController.editar()}" >
@@ -55,7 +48,6 @@
 														<h:graphicImage
 															value="/assets/images/editar.png" />
 													</p:commandLink>
-													<p:spacer />
 													<p:commandLink immediate="true" title="Eliminar" 
 														action="#{rolController.eliminar()}" update="tblRol">
 														<f:setPropertyActionListener value="#{var}" 

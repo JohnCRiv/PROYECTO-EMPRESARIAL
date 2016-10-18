@@ -9,8 +9,8 @@
 		<view-id value="/pages/login.xhtml" />
 	</url-mapping>
 	
-	<url-mapping id="home">
-		<pattern value="/home" />
+	<url-mapping id="bienvenida">
+		<pattern value="/bienvenida" />
 		<view-id value="/pages/bienvenida.xhtml" />
 	</url-mapping>
 	
@@ -32,6 +32,11 @@
 	<url-mapping id="docente_mantenimiento">
 		<pattern value="/docente/mantenimiento" />
 		<view-id value="/pages/maestros/docente/docente_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="docente_asignar_cursos">
+		<pattern value="/docente/asignar_cursos" />
+		<view-id value="/pages/maestros/docente/docente_asignar_cursos.xhtml" />
 	</url-mapping>
 	
 	<url-mapping id="rol_listado">
