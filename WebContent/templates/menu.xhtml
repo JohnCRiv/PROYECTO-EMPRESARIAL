@@ -12,7 +12,7 @@
                         <div class="sidebar-profile">
                             <a href="javascript:void(0);" id="profile-menu-link">
                                 <div class="sidebar-profile-image">
-                                    <img src="#{request.contextPath}/assets/images/profile-menu-image.png" class="img-circle img-responsive" />
+                                    <img src="#{request.contextPath}/assets/images/logo-cibertec.png" class="img-circle img-responsive" />
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span>${UsuarioActual.nombres}<br/><small>${UsuarioActual.nombrerol}</small></span>
@@ -34,13 +34,14 @@
             </div>
             
     <h:form id="formMenu">
-            <p:commandButton id="btnEnlace"   action="#{enlaceController.init()}" 	style="display:none" />
-			<p:commandButton id="btnDocente"  action="#{docenteController.init()}" 	style="display:none" />				
-			<p:commandButton id="btnRol" 	  action="#{rolController.init()}"		style="display:none" />				
-			<p:commandButton id="btnAlumno"   action="#{alumnoController.init()}" 	style="display:none" />				
-			<p:commandButton id="btnSede" 	  action="#{sedeController.init()}" 	style="display:none" />				
-			<p:commandButton id="btnUsuario"  action="#{usuarioController.init()}"  style="display:none" />            
-            <p:commandButton id="btnCurso" 	  action="#{cursoController.init()}"    style="display:none" />
+            <p:commandButton id="btnEnlace"   		action="#{enlaceController.init()}" 		style="display:none" />
+			<p:commandButton id="btnDocente"  		action="#{docenteController.init()}" 		style="display:none" />				
+			<p:commandButton id="btnRol" 	  		action="#{rolController.init()}"			style="display:none" />				
+			<p:commandButton id="btnAlumno"   		action="#{alumnoController.init()}" 		style="display:none" />				
+			<p:commandButton id="btnSede" 	  		action="#{sedeController.init()}" 			style="display:none" />				
+			<p:commandButton id="btnUsuario"  		action="#{usuarioController.init()}"  		style="display:none" />            
+            <p:commandButton id="btnCurso" 	  		action="#{cursoController.init()}"    		style="display:none" />
+            <p:commandButton id="btnCursosDocente"	action="#{cursosDocenteController.init()}"	style="display:none" />
     </h:form>
     
     <script type="text/javascript">

@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material"
+	template="/templates/main.xhtml">
+	<ui:define name="content">
+	
+				<div class="page-title">
+                    <h3>Alumnos</h3>
+                </div>
+                
+                <p:growl autoUpdate="true" />
+                
+                <div id="main-wrapper">
+                    <div class="row">
+                        <h:form id="formAlumnoAsignarCurso">
+	                        <div class="col-md-12">
+	                            <div class="panel panel-white">
+	                                <div class="panel-heading">
+	                                    <h4 class="panel-title">Asignar Cursos</h4>
+	                                    <div class="form-group text-right m-b-0">
+													<mp:button action="#{alumnoController.guardarAsignacionCursos()}" value="Guardar" />
+												</div>
+	                                </div>
+	                                <div class="panel-body">
+	                                	<p>Este módulo asigna los cursos al alumno.</p>
+	                                	<p>Alumno : <strong> #{alumnoController.alumno.nombres} </strong></p>
+	                                	<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">
+	                                		Agregar Curso
+	                                	</button>
+	                                	<ui:include src="/pages/maestros/alumno/curso_selector.xhtml" />
+	                                	
+	                                    <p:dataTable id="tblAlumnosCursos"
+	                                    	emptyMessage="No existen cursos asignados" 
+	                                    	scrollable="true" scrollWidth="1050" style="margin-top:20px;"
+	                                    	value="#{alumnoController.listaAlumnoCursos}" var="var" >
+	                                    	<p:column headerText="ID CURSO"  >
+												<h:outputText value="#{var.pk.idcurso}" />
+											</p:column>
+											<p:column headerText="DESCRIPCIÓN"  >
+												<h:outputText value="#{var.descripcion}" />
+											</p:column>
+											<p:column headerText="CRÉDITOS"  >
+												<h:outputText value="#{var.creditos}" />
+											</p:column>
+											<p:column headerText="" >
+												<p:panelGrid columns="1" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-12"
+													layout="grid" styleClass="ui-panelgrid-blank">
+													<p:commandLink immediate="true" title="Eliminar" 
+														action="#{alumnoController.eliminarCurso()}"
+														update="formAlumnoAsignarCurso:tblAlumnosCursos">
+														<f:setPropertyActionListener value="#{var}" target="#{alumnoController.curso}" />
+														<h:graphicImage
+															value="/assets/images/eliminar.png" />
+														<p:confirm header="Confirmación" icon="fa fa-exclamation"
+															message="¿Está seguro de eliminar este registro?" />
+													</p:commandLink>
+												</p:panelGrid>
+											</p:column>
+	                                    </p:dataTable>
+	                                </div>
+	                            </div>
+	                        </div>
+	                	</h:form>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+	</ui:define>
+</ui:composition>

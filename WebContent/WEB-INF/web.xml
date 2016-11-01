@@ -68,5 +68,9 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 	
+	<error-page>
+    	<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+	    <location>/index.jsp</location>
+	</error-page>
 	
 </web-app>

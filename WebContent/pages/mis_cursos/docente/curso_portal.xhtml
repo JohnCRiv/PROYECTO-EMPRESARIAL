@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material"
+	template="/templates/main.xhtml">
+	<ui:define name="content">
+	
+				<div class="page-title">
+                    <h3><strong>#{cursoPortalController.curso.descripcion} - #{cursoPortalController.curso.pk.idcurso}</strong></h3>
+                </div>
+                
+                <p:growl autoUpdate="true" />
+                
+                <div id="main-wrapper">
+                    <div class="row">
+                        <h:form id="formCursoPortal">
+	                        <div class="col-md-12">
+	                            <div class="panel panel-white">
+	                                <div class="panel-heading" style="margin-bottom:5px;">
+	                                    <h4 class="panel-title">Examenes Virtuales : </h4>
+	                                    <div class="form-group text-right m-b-0">
+											<mp:button action="#{examenController.nuevo()}" value="Nuevo Exámen Virtual" style="margin-right:10px;" />
+											<mp:button action="#{examenController.nuevo()}" value="Gestionar Banco de Preguntas" />
+										</div>
+	                                </div>
+	                                <div class="panel-body">
+										<div role="tabpanel">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-pills" role="tablist">
+                                                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" aria-expanded="true">Examenes Virtuales Programados</a></li>
+                                                <li role="presentation" class=""><a href="#tab2" role="tab" data-toggle="tab" aria-expanded="false">Examenes Virtuales en Curso</a></li>
+                                                <li role="presentation" class=""><a href="#tab3" role="tab" data-toggle="tab" aria-expanded="false">Examenes Virtuales Concluídos</a></li>
+                                            </ul>
+                                            <!-- Tab panes -->
+		                                    <div class="tab-content">
+												<div role="tabpanel" class="tab-pane fade active in" id="tab1">
+													<p>Aún no existen examenes virtuales programados.</p>
+												</div>
+												<div role="tabpanel" class="tab-pane fade" id="tab2">
+													<p>Aún no existen examenes virtuales en curso.</p>
+												</div>
+												<div role="tabpanel" class="tab-pane fade" id="tab3">
+													<p>Aún no existen examenes virtuales concluídos.</p>
+												</div>
+											</div>
+                                        </div>
+									</div>
+	                            </div>
+	                        </div>
+	                	</h:form>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+	</ui:define>
+</ui:composition>

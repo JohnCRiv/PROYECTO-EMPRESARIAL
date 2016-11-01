@@ -53,8 +53,8 @@
 												</h:outputText>
 											</p:column>
 											<p:column headerText="ACCIONES"  >
-												<p:panelGrid columns="2" style="border-spacing:0px;"
-													columnClasses="ui-grid-col-6,ui-grid-col-6"
+												<p:panelGrid columns="3" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3"
 													layout="grid" styleClass="ui-panelgrid-blank">
 													<p:commandLink immediate="true" title="Editar"
 														action="#{alumnoController.editar()}" >
@@ -71,6 +71,12 @@
 															value="/assets/images/eliminar.png" />
 														<p:confirm header="Confirmación" icon="fa fa-exclamation"
 															message="¿Está seguro de eliminar este registro?" />
+													</p:commandLink>
+													<p:commandLink immediate="true" title="Asignar Curso" 
+														action="#{alumnoController.iniciarAsignacionCurso()}" >
+														<f:setPropertyActionListener value="#{var}" target="#{alumnoController.alumno}" />
+														<h:graphicImage
+															value="/assets/images/gear.png" />
 													</p:commandLink>
 												</p:panelGrid>
 											</p:column>

@@ -55,7 +55,7 @@
 												<div class="form-group">
 													<label class="col-md-2 control-label" for="example-email">Fecha Nacimiento</label>
 													<div class="col-md-10">
-														<mp:datePicker value="#{docenteController.docente.fechanacimiento}" />
+														<p:calendar value="#{docenteController.docente.fechanacimiento}" />
 													</div>
 												</div>
 											</div>
@@ -76,8 +76,7 @@
 												
 			
 												<div class="form-group text-right m-b-0">
-													<mp:button action="#{docenteController.guardar()}" value="Guardar"
-														/>
+													<mp:button action="#{docenteController.guardar()}" value="Guardar" />
 												</div>
 			
 											</div>

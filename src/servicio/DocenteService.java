@@ -10,4 +10,6 @@ public interface DocenteService extends GenericoService<Docente> {
 
 	public void guardarAsignacionCurso(Docente docente, List<Curso> listaCursosDocente);
 	
+	public Docente obtenerDocentePorDocumento(String numerodocumento);
+	
 }

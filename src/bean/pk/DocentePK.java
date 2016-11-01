@@ -11,5 +11,11 @@ public class DocentePK {
 	public void setIddocente(Integer iddocente) {
 		this.iddocente = iddocente;
 	}
+	
+	public DocentePK() {}
+	
+	public DocentePK(Integer iddocente) {
+		this.iddocente = iddocente;
+	}
 
 }

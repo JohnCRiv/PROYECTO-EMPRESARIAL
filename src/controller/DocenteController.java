@@ -7,7 +7,6 @@ import javax.faces.bean.SessionScoped;
 
 import bean.Curso;
 import bean.Docente;
-import bean.DocenteCurso;
 import bean.Sede;
 import generico.BaseController;
 import generico.GenericoController;
@@ -85,10 +84,6 @@ public class DocenteController extends BaseController implements GenericoControl
 		listaCursosDocente = getDocenteCursoService().obtenerCursosAsignados(docente);
 		listaCursos = getCursoService().listarTodos();
 		return "pretty:docente_asignar_cursos";
-	}
-	
-	public String buscarCursos() {
-		return null;
 	}
 	
 	public String agregarCurso() {

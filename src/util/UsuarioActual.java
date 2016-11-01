@@ -78,5 +78,9 @@ public class UsuarioActual {
 	public void setEnlaces(List<Enlace> enlaces) {
 		this.enlaces = enlaces;
 	}
+	
+	public String getNombresCompletos() {
+		return this.nombres + " " + this.apellidopaterno + " " + apellidomaterno;
+	}
 
 }

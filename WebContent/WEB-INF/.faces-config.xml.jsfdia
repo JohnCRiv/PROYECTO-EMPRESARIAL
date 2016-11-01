@@ -25,10 +25,11 @@
     TARGET="rules:#pages#maestros#docente#docente_mantenimiento.xhtml"
     TITLE="docente_mantenimiento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="rol_listado::#pages#maestros#rol#rol_listado.xhtml"
-    NAME="output4" PATH="/pages/maestros/rol/rol_listado.xhtml"
-    TARGET="rules:#pages#maestros#rol#rol_listado.xhtml"
-    TITLE="rol_listado" model-entity="JSFProcessItemOutput"/>
+    ID="docente_asignar_cursos::#pages#maestros#docente#docente_asignar_cursos.xhtml"
+    NAME="output4"
+    PATH="/pages/maestros/docente/docente_asignar_cursos.xhtml"
+    TARGET="rules:#pages#maestros#docente#docente_asignar_cursos.xhtml"
+    TITLE="docente_asignar_cursos" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="rol_mantenimiento::#pages#maestros#rol#rol_mantenimiento.xhtml"
     NAME="output5" PATH="/pages/maestros/rol/rol_mantenimiento.xhtml"
@@ -123,4 +124,8 @@
   NAME="rules:#pages#maestros#curso#curso_mantenimiento.xhtml"
   PATH="/pages/maestros/curso/curso_mantenimiento.xhtml"
   SHAPE="304,673,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#maestros#docente#docente_asignar_cursos.xhtml"
+  PATH="/pages/maestros/docente/docente_asignar_cursos.xhtml"
+  SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

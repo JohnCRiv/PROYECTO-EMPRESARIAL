@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import bean.Alumno;
+import bean.Curso;
 import generico.BaseController;
 import generico.GenericoController;
 
@@ -15,6 +16,9 @@ public class AlumnoController extends BaseController implements GenericoControll
 
 	private List<Alumno> listaAlumno;
 	private Alumno alumno;
+	private List<Curso> listaCursos;
+	private List<Curso> listaAlumnoCursos;
+	private Curso curso;
 
 	public AlumnoController(){
 		pantallaListado = "pretty:alumno_listado";
@@ -48,8 +52,6 @@ public class AlumnoController extends BaseController implements GenericoControll
 
 	@Override
 	public String guardar() throws Exception {
-		System.out.println("Fecha : " + alumno.getFechanacimiento());
-		System.out.println("Doc : " + alumno.getNumerodocumento());
 		if(accionSolicitada.equals(AccionSolicitada.NUEVO)){
 			alumno.getPk().setIdalumno("ALU-" + alumno.getNumerodocumento());
 			getAlumnoService().registrar(alumno);
@@ -75,6 +77,43 @@ public class AlumnoController extends BaseController implements GenericoControll
 		buscar();
 		enviarMensajeExitoso("Éxito", "Se eliminó!");
 		return null;
+	}
+	
+	public String iniciarAsignacionCurso() {
+		listaAlumnoCursos = getAlumnoCursoService().obtenerCursosAsignados(alumno);
+		listaCursos = getCursoService().listarTodos();
+		return "pretty:alumno_asignar_cursos";
+	}
+	
+	public String agregarCurso() {
+		if (!esCursoRepetido()) {
+			listaAlumnoCursos.add(curso);
+			enviarMensajeExitoso("Éxito", "El curso " + curso.getDescripcion() + " se agregó correctamente.");
+		} else {
+			this.ejecutar("$('.notifyjs-corner').remove();");
+			enviarMensajeError("Error", "El curso " + curso.getDescripcion() + " ya se encuentra asignado.");
+		}
+		return null;
+	}
+	
+	public String eliminarCurso() {
+		listaAlumnoCursos.remove(curso);
+		enviarMensajeExitoso("Éxito", "El curso " + curso.getDescripcion() + " se eliminó correctamente.");
+		return null;
+	}
+	
+	public Boolean esCursoRepetido() {
+		for (Curso curso : listaAlumnoCursos) 
+			if (curso.getPk().getIdcurso().equals(this.curso.getPk().getIdcurso())) 
+				return true;
+		
+		return false;
+	}
+	
+	public String guardarAsignacionCursos() {
+		getAlumnoService().guardarAsignacionCurso(alumno, listaAlumnoCursos);
+		enviarMensajeExitoso("Éxito", "Se registró correctamente.");
+		return pantallaListado;
 	}
 
 	@Override
@@ -123,4 +162,28 @@ public class AlumnoController extends BaseController implements GenericoControll
 		this.alumno = alumno;
 	}
 
+	public List<Curso> getListaCursos() {
+		return listaCursos;
+	}
+
+	public void setListaCursos(List<Curso> listaCursos) {
+		this.listaCursos = listaCursos;
+	}
+
+	public List<Curso> getListaAlumnoCursos() {
+		return listaAlumnoCursos;
+	}
+
+	public void setListaAlumnoCursos(List<Curso> listaAlumnoCursos) {
+		this.listaAlumnoCursos = listaAlumnoCursos;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	
 }

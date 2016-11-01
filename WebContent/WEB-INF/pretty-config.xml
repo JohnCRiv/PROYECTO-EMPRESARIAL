@@ -88,5 +88,25 @@
 		<pattern value="/curso/mantenimiento" />
 		<view-id value="/pages/maestros/curso/curso_mantenimiento.xhtml" />
 	</url-mapping>
+	
+	<url-mapping id="cursos_docente">
+		<pattern value="/docente/mis_cursos" />
+		<view-id value="/pages/mis_cursos/docente/mis_cursos.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="curso_portal">
+		<pattern value="/docente/curso/portal" />
+		<view-id value="/pages/mis_cursos/docente/curso_portal.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="examen_mantenimiento">
+		<pattern value="/examen/mantenimiento" />
+		<view-id value="/pages/examen/examen_mantenimiento.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="alumno_asignar_cursos">
+		<pattern value="/alumno/asignar_cursos" />
+		<view-id value="/pages/maestros/alumno/alumno_asignar_curso.xhtml" />
+	</url-mapping>
 
 </pretty-config>

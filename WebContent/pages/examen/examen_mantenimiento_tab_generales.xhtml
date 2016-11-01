@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material">
+
+	<div class="col-md-6">
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-md-2 control-label">Descripción</label>
+				<div class="col-md-10">
+					<mp:input cols="20" multiLine="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label">Duración</label>
+				<div class="col-md-10">
+					<mp:checkbox itemLabel="Con Límite de Tiempo" value="#{examenController.conLimiteTiempo}" >
+						<p:ajax update="@form" />
+					</mp:checkbox>
+					<p:spacer />
+					<mp:input label="Tiempo de duración del exámen en minutos."  rendered="#{examenController.conLimiteTiempo}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label">Fechas</label>
+				<div class="col-md-10">
+					<mp:checkbox itemLabel="Con Fecha de Fin" value="#{examenController.conFechaFin}" >
+						<p:ajax update="@form" />
+					</mp:checkbox>
+					<p:spacer />
+					<p:calendar placeholder="Fecha de Inicio del exámen" />
+					<p:calendar placeholder="Fecha de Fin del exámen" rendered="#{examenController.conFechaFin}" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+</ui:composition>

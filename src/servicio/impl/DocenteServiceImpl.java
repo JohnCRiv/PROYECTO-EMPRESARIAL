@@ -31,5 +31,10 @@ public class DocenteServiceImpl extends GenericoServiceImpl<Docente> implements 
 	public void guardarAsignacionCurso(Docente docente, List<Curso> listaCursosDocente) {
 		dao.guardarAsignacionCurso(docente, listaCursosDocente);
 	}
+
+	@Override
+	public Docente obtenerDocentePorDocumento(String numerodocumento) {
+		return dao.obtenerDocentePorDocumento(numerodocumento);
+	}
 	
 }

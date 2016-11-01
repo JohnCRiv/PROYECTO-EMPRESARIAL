@@ -133,7 +133,7 @@ $( document ).ready(function() {
     var checkBox = $("input[type=checkbox]:not(.switchery), input[type=radio]:not(.no-uniform)");
     if (checkBox.size() > 0) {
         checkBox.each(function() {
-            $(this).uniform();
+//            $(this).uniform();
         });
     };
     

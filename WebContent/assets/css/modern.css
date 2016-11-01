@@ -352,6 +352,7 @@ h5 {
 .badge.badge-success {
     background: #22BAA0;
     color: #FFF;
+    min-width: 0px;
 }
 
 .badge.badge-danger {
@@ -2143,14 +2144,13 @@ fieldset[disabled] .btn-danger.active {
 
 .nav-pills > li > a {
     color: #777;
-    border-radius: 0!important;
 }
 
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
     color: #fff;
-    background-color: #7a6fbe;
+    background-color: #26A69A;
 }
 
 .tabs-below > .nav-tabs,
@@ -2713,6 +2713,7 @@ tr.group:hover {
 .datepicker table tr th, 
 .datepicker table tr td span {
     border-radius: 0!important;
+    margin-right: 20px;
 }
 
 .datepicker table tr td.active:hover,
@@ -2736,7 +2737,7 @@ tr.group:hover {
 .open .dropdown-toggle.datepicker table tr td.active.disabled,
 .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
     color: #ffffff;
-    background-color: #7a6fbe;
+    background-color: #2ab7a9;
     border: 0;
 }
 
@@ -2761,8 +2762,9 @@ tr.group:hover {
 .open .dropdown-toggle.datepicker table tr td span.active.disabled,
 .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
     color: #ffffff;
-    background-color: #7a6fbe;
+    background-color: #2ab7a9;
     border: 0;
+    padding: 2.5px;
 }
 
 
