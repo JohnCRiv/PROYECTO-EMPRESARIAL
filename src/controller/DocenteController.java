@@ -7,7 +7,9 @@ import javax.faces.bean.SessionScoped;
 
 import bean.Curso;
 import bean.Docente;
+import bean.Rol;
 import bean.Sede;
+import bean.Usuario;
 import generico.BaseController;
 import generico.GenericoController;
 
@@ -56,6 +58,7 @@ public class DocenteController extends BaseController implements GenericoControl
 	public String guardar() throws Exception {
 		if (accionSolicitada.equals(AccionSolicitada.NUEVO)) {
 			getDocenteService().registrar(docente);
+			guardarUsuario();
 			enviarMensajeExitoso("Éxito", "Se registró!");
 		} else {
 			getDocenteService().actualizar(docente);
@@ -64,6 +67,20 @@ public class DocenteController extends BaseController implements GenericoControl
 		
 		buscar();
 		return pantallaListado;
+	}
+	
+	private void guardarUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setNombres(docente.getNombres());
+		usuario.setApellidopaterno(docente.getApellidopaterno());
+		usuario.setApellidomaterno(docente.getApellidomaterno());
+		usuario.setNumerodocumento(docente.getNumerodocumento());
+		Rol rol = new Rol();
+		rol.getPk().setIdrol(22);
+		usuario.setRol(rol);
+		usuario.setUsuario(docente.getNumerodocumento());
+		usuario.setClave("123");
+		getUsuarioService().registrar(usuario);
 	}
 
 	@Override

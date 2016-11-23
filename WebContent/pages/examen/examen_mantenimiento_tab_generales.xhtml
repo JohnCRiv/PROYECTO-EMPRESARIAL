@@ -14,7 +14,8 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">Descripción</label>
 				<div class="col-md-10">
-					<mp:input cols="20" multiLine="true" />
+					<mp:input cols="20" multiLine="true" value="#{examenController.examen.descripcion}"
+						required="true" requiredMessage="Debe ingresar la descripción del examen" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -24,7 +25,9 @@
 						<p:ajax update="@form" />
 					</mp:checkbox>
 					<p:spacer />
-					<mp:input label="Tiempo de duración del exámen en minutos."  rendered="#{examenController.conLimiteTiempo}" />
+					<mp:input label="Tiempo de duración del exámen en minutos." rendered="#{examenController.conLimiteTiempo}" 
+						id="conLimiteTiempo" value="#{examenController.examen.duracion}"
+						required="true" requiredMessage="Debe ingresar el tiempo de duración del examen" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,8 +37,11 @@
 						<p:ajax update="@form" />
 					</mp:checkbox>
 					<p:spacer />
-					<p:calendar placeholder="Fecha de Inicio del exámen" />
-					<p:calendar placeholder="Fecha de Fin del exámen" rendered="#{examenController.conFechaFin}" />
+					<p:calendar placeholder="Fecha de Inicio del exámen" value="#{examenController.examen.fechainicio}"
+						required="true" requiredMessage="Debe ingresar la fecha inicial del examen" />
+					<p:calendar placeholder="Fecha de Fin del exámen" rendered="#{examenController.conFechaFin}"
+						id="conFechaFin" value="#{examenController.examen.fechafin}"
+						required="true" requiredMessage="Debe ingresar la fecha fin del examen" />
 				</div>
 			</div>
 		</div>

@@ -12,8 +12,6 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import util.Constantes;
 import util.Parametro;
 
@@ -30,7 +28,6 @@ public abstract class GenericoDaoImpl<T> implements GenericoDao<T> {
 	}
 	
 	@Override
-	@Transactional
 	public void registrar(T bean) {
 		openConnection();
 		entityManager.getTransaction().begin();

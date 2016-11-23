@@ -8,19 +8,24 @@ import bean.Docente;
 import bean.DocenteCurso;
 import dao.DocenteDao;
 import generico.GenericoDaoImpl;
+import servicio.DocenteCursoService;
 import servicio.impl.DocenteCursoServiceImpl;
 import util.Parametro;
 
 public class DocenteDaoImpl extends GenericoDaoImpl<Docente> implements DocenteDao {
+	
+	private DocenteCursoService docenteCursoService;
 
 	@Override
 	public void guardarAsignacionCurso(Docente docente, List<Curso> listaCursosDocente) {
-		DocenteCursoServiceImpl.getInstance().eliminarCursosAsignados(docente);
+		docenteCursoService = DocenteCursoServiceImpl.getInstance();
+		
+		docenteCursoService.eliminarCursosAsignados(docente);
 		for (Curso curso : listaCursosDocente) {
 			DocenteCurso bean = new DocenteCurso();
 			bean.getPk().setIdcurso(curso.getPk().getIdcurso());
 			bean.getPk().setIddocente(docente.getPk().getIddocente());
-			DocenteCursoServiceImpl.getInstance().registrar(bean);
+			docenteCursoService.registrar(bean);
 		}
 	}
 

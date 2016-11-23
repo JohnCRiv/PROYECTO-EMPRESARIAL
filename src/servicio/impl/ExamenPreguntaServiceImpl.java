@@ -1,5 +1,7 @@
 package servicio.impl;
 
+import java.util.List;
+
 import bean.ExamenPregunta;
 import dao.ExamenPreguntaDao;
 import factory.Factory;
@@ -22,6 +24,11 @@ public class ExamenPreguntaServiceImpl extends GenericoServiceImpl<ExamenPregunt
 			service = new ExamenPreguntaServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public List<ExamenPregunta> listarPreguntas(Integer idcurso, Integer idexamen) {
+		return dao.listarPreguntas(idcurso, idexamen);
 	}
 	
 }

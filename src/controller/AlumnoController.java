@@ -7,6 +7,8 @@ import javax.faces.bean.SessionScoped;
 
 import bean.Alumno;
 import bean.Curso;
+import bean.Rol;
+import bean.Usuario;
 import generico.BaseController;
 import generico.GenericoController;
 
@@ -52,9 +54,10 @@ public class AlumnoController extends BaseController implements GenericoControll
 
 	@Override
 	public String guardar() throws Exception {
-		if(accionSolicitada.equals(AccionSolicitada.NUEVO)){
+		if(accionSolicitada.equals(AccionSolicitada.NUEVO)) {
 			alumno.getPk().setIdalumno("ALU-" + alumno.getNumerodocumento());
 			getAlumnoService().registrar(alumno);
+			guardarUsuario();
 			enviarMensajeExitoso("Exito", "Se registro!");
 		} else {
 			getAlumnoService().actualizar(alumno);
@@ -63,7 +66,21 @@ public class AlumnoController extends BaseController implements GenericoControll
 		
 		buscar();
 		return pantallaListado;	
-		}
+	}
+	
+	private void guardarUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setNombres(alumno.getNombres());
+		usuario.setApellidopaterno(alumno.getApellidopaterno());
+		usuario.setApellidomaterno(alumno.getApellidomaterno());
+		usuario.setNumerodocumento(alumno.getNumerodocumento());
+		Rol rol = new Rol();
+		rol.getPk().setIdrol(21);
+		usuario.setRol(rol);
+		usuario.setUsuario(alumno.getNumerodocumento());
+		usuario.setClave("123");
+		getUsuarioService().registrar(usuario);
+	}
 
 	@Override
 	public String ver() throws Exception {

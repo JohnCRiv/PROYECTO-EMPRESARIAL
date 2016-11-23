@@ -1,5 +1,7 @@
 package servicio.impl;
 
+import java.util.List;
+
 import bean.PreguntaOpcion;
 import dao.PreguntaOpcionDao;
 import factory.Factory;
@@ -22,6 +24,11 @@ public class PreguntaOpcionServiceImpl extends GenericoServiceImpl<PreguntaOpcio
 			service = new PreguntaOpcionServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public List<PreguntaOpcion> listarOpciones(Integer idcurso, Integer idpregunta) {
+		return dao.listarOpciones(idcurso, idpregunta);
 	}
 	
 }

@@ -108,5 +108,20 @@
 		<pattern value="/alumno/asignar_cursos" />
 		<view-id value="/pages/maestros/alumno/alumno_asignar_curso.xhtml" />
 	</url-mapping>
+	
+	<url-mapping id="cursos_alumno">
+		<pattern value="/alumno/mis_cursos" />
+		<view-id value="/pages/mis_cursos/alumno/mis_cursos.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="curso_portal_alumno">
+		<pattern value="/alumno/curso/portal" />
+		<view-id value="/pages/mis_cursos/alumno/curso_portal.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="rendir_examen">
+		<pattern value="/examen/virtual" />
+		<view-id value="/pages/examen/rendir_examen.xhtml" />
+	</url-mapping>
 
 </pretty-config>

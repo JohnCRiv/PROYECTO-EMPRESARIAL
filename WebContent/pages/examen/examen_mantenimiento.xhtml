@@ -24,6 +24,9 @@
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading">
 	                                    <h4 class="panel-title">#{examenController.accionSolicitada} EXÁMEN ( #{cursoPortalController.curso.descripcion.toUpperCase()} )</h4>
+	                                	<div class="form-group text-right m-b-0">
+											<mp:button action="#{examenController.guardar()}" value="Generar Exámen" />
+										</div>
 	                                </div>
 	                                <div class="panel-body">
 										<div role="tabpanel">
@@ -38,7 +41,7 @@
 													<ui:include src="/pages/examen/examen_mantenimiento_tab_generales.xhtml" />
 												</div>
 												<div role="tabpanel" class="tab-pane fade" id="tab2">
-													<ui:include src="" />
+													<ui:include src="/pages/examen/examen_mantenimiento_tab_preguntas.xhtml" />
 												</div>
 											</div>
                                         </div>

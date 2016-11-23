@@ -31,15 +31,15 @@
     TARGET="rules:#pages#maestros#docente#docente_asignar_cursos.xhtml"
     TITLE="docente_asignar_cursos" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
+    ID="rol_listado::#pages#maestros#rol#rol_listado.xhtml"
+    NAME="output5" PATH="/pages/maestros/rol/rol_listado.xhtml"
+    TARGET="rules:#pages#maestros#rol#rol_listado.xhtml"
+    TITLE="rol_listado" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
     ID="rol_mantenimiento::#pages#maestros#rol#rol_mantenimiento.xhtml"
-    NAME="output5" PATH="/pages/maestros/rol/rol_mantenimiento.xhtml"
+    NAME="output6" PATH="/pages/maestros/rol/rol_mantenimiento.xhtml"
     TARGET="rules:#pages#maestros#rol#rol_mantenimiento.xhtml"
     TITLE="rol_mantenimiento" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
-    ID="sede_listado::#pages#maestros#sede#sede_listado.xhtml"
-    NAME="output6" PATH="/pages/maestros/sede/sede_listado.xhtml"
-    TARGET="rules:#pages#maestros#sede#sede_listado.xhtml"
-    TITLE="sede_listado" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="sede_mantenimiento::#pages#maestros#sede#sede_mantenimiento.xhtml"
     NAME="output7" PATH="/pages/maestros/sede/sede_mantenimiento.xhtml"

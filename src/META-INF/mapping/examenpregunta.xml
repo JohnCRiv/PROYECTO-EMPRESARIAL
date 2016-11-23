@@ -11,6 +11,9 @@
 		<table name="examen_pregunta" />
 		<attributes>
 			<embedded-id name="pk" />
+			<basic name="puntaje">
+				<column name="puntaje" />
+			</basic>
 			<many-to-one name="curso">
             	<join-column name="idcurso" referenced-column-name="idcurso" insertable="false" updatable="false" />
             </many-to-one>

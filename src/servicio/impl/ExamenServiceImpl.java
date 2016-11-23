@@ -1,7 +1,11 @@
 package servicio.impl;
 
+import java.util.List;
+
+import bean.Curso;
 import bean.Examen;
 import dao.ExamenDao;
+import dto.DtoPregunta;
 import factory.Factory;
 import generico.GenericoServiceImpl;
 import servicio.ExamenService;
@@ -22,6 +26,16 @@ public class ExamenServiceImpl extends GenericoServiceImpl<Examen> implements Ex
 			service = new ExamenServiceImpl();
 		
 		return service;
+	}
+	
+	@Override
+	public Examen obtenerExamenMaxId() {
+		return dao.obtenerExamenMaxId();
+	}
+
+	@Override
+	public void registrarExamen(Examen examen, Curso curso, List<DtoPregunta> listaPreguntasExamen) {
+		dao.registrarExamen(examen, curso, listaPreguntasExamen);
 	}
 	
 }

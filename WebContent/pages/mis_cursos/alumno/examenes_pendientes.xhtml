@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material">
+
+	<div id="main-wrapper">
+		<div class="row">
+			<ui:repeat var="var" value="#{cursoPortalAlumnoController.listaExamenesPendientes}">
+				<div class="col-lg-6 col-md-6">
+					<p:commandLink action="#{examenVirtualController.init()}">
+						<div class="panel info-box panel-white">
+							<div class="panel-body">
+								<div class="info-box-stats">
+									<p class="counter">Examen Virtual N° #{var.pk.idexamen}</p>
+									<h:outputLabel value="#{var.descripcion}" /> <br></br>
+									<h:outputLabel value="Fecha de Inicio : " />
+									<h:outputLabel value="#{var.fechainicio}" >
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputLabel>
+									<span class="info-box-title"></span>
+								</div>
+								<div class="info-box-icon">
+									<i class="fa fa-file"></i>
+								</div>
+								<div class="info-box-progress">
+									<div class="progress progress-xs progress-squared bs-n">
+										<div class="progress-bar progress-bar-success"
+											role="progressbar" aria-valuenow="40" aria-valuemin="0"
+											aria-valuemax="100" style="width: 100%"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<f:setPropertyActionListener value="#{var}" target="#{examenVirtualController.examen}" />
+						<f:setPropertyActionListener value="#{cursoPortalAlumnoController.curso}" target="#{examenVirtualController.curso}" />
+						<p:confirm header="Confirmación" icon="fa fa-exclamation"
+							message="¿Seguro de rendir el exámen?" />
+					</p:commandLink>
+				</div>
+			</ui:repeat>
+		</div>
+	</div>
+
+</ui:composition>

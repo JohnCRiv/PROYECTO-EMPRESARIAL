@@ -31,5 +31,10 @@ public class AlumnoServiceImpl extends GenericoServiceImpl<Alumno> implements Al
 	public void guardarAsignacionCurso(Alumno alumno, List<Curso> listaAlumnoCursos) {
 		dao.guardarAsignacionCurso(alumno, listaAlumnoCursos);
 	}
+
+	@Override
+	public Alumno obtenerAlumnoPorDocumento(String numerodocumento) {
+		return dao.obtenerAlumnoPorDocumento(numerodocumento);
+	}
 	
 }

@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material"
+	template="/templates/main.xhtml">
+	<ui:define name="content">
+	
+				<div class="page-title">
+                    <h3><strong>#{cursoPortalAlumnoController.curso.descripcion} - #{cursoPortalAlumnoController.curso.pk.idcurso}</strong></h3>
+                </div>
+                
+                <p:growl autoUpdate="true" />
+                
+                <div id="main-wrapper">
+                    <div class="row">
+                        <h:form id="formCursoPortal">
+	                        <div class="col-md-12">
+	                            <div class="panel panel-white">
+	                                <div class="panel-body">
+										<div role="tabpanel">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-pills" role="tablist">
+                                                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab" aria-expanded="true">Examenes Virtuales Pendientes</a></li>
+                                            </ul>
+                                            <!-- Tab panes -->
+		                                    <div class="tab-content">
+												<div role="tabpanel" class="tab-pane fade active in" id="tab1">
+													<ui:include src="/pages/mis_cursos/alumno/examenes_pendientes.xhtml" />
+												</div>
+											</div>
+                                        </div>
+									</div>
+	                            </div>
+	                        </div>
+	                	</h:form>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+	</ui:define>
+</ui:composition>

@@ -335,6 +335,7 @@ CREATE TABLE `examen_pregunta` (
   `idcurso` int(11) NOT NULL,
   `idexamen` int(11) NOT NULL,
   `idpregunta` int(11) NOT NULL,
+  `puntaje` int(11) NOT NULL
   PRIMARY KEY (`idcurso`,`idexamen`,`idpregunta`),
   KEY `fk_examen_pregunta_curso_examen1_idx` (`idcurso`,`idexamen`),
   KEY `fk_examen_pregunta_pregunta1_idx` (`idpregunta`),

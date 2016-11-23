@@ -6,10 +6,12 @@ import bean.Enlace;
 import bean.Rol;
 import dao.RolDao;
 import generico.GenericoDaoImpl;
+import servicio.RolEnlaceService;
 import servicio.impl.RolEnlaceServiceImpl;
-import servicio.impl.RolServiceImpl;
 
 public class RolDaoImpl extends GenericoDaoImpl<Rol> implements RolDao {
+	
+	private RolEnlaceService rolEnlaceService;
 
 	@Override
 	public Rol obtenerRolMaxID() {
@@ -19,16 +21,20 @@ public class RolDaoImpl extends GenericoDaoImpl<Rol> implements RolDao {
 
 	@Override
 	public void registrarRol(Rol rol, List<Enlace> listaEnlace) {
+		rolEnlaceService = RolEnlaceServiceImpl.getInstance();
+		
 		this.registrar(rol);
-		Rol ultimoRol = RolServiceImpl.getInstance().obtenerRolMaxID();
-		RolEnlaceServiceImpl.getInstance().registrarRolEnlace(ultimoRol, listaEnlace);
+		Rol ultimoRol = this.obtenerRolMaxID();
+		rolEnlaceService.registrarRolEnlace(ultimoRol, listaEnlace);
 	}
 
 	@Override
 	public void actualizarRol(Rol rol, List<Enlace> listaEnlace) {
+		rolEnlaceService = RolEnlaceServiceImpl.getInstance();
+		
 		this.actualizar(rol);
-		RolEnlaceServiceImpl.getInstance().eliminarSegunRol(rol);
-		RolEnlaceServiceImpl.getInstance().registrarRolEnlace(rol, listaEnlace);
+		rolEnlaceService.eliminarSegunRol(rol);
+		rolEnlaceService.registrarRolEnlace(rol, listaEnlace);
 	}
 	
 }

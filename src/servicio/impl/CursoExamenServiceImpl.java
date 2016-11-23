@@ -1,6 +1,11 @@
 package servicio.impl;
 
+import java.util.List;
+
+import bean.Alumno;
+import bean.Curso;
 import bean.CursoExamen;
+import bean.Examen;
 import dao.CursoExamenDao;
 import factory.Factory;
 import generico.GenericoServiceImpl;
@@ -22,6 +27,21 @@ public class CursoExamenServiceImpl extends GenericoServiceImpl<CursoExamen> imp
 			service = new CursoExamenServiceImpl();
 		
 		return service;
+	}
+
+	@Override
+	public List<CursoExamen> listarExamenesProgramados(Curso curso) {
+		return dao.listarExamenesProgramados(curso);
+	}
+	
+	@Override
+	public List<Examen> listarExamenesEnCurso(Curso curso) {
+		return dao.listarExamenesEnCurso(curso);
+	}
+
+	@Override
+	public List<CursoExamen> listarExamenesPendientes(Curso curso, Alumno alumno) {
+		return dao.listarExamenesPendientes(curso, alumno);
 	}
 	
 }

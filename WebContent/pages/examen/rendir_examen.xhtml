@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material"
+	template="/templates/main.xhtml">
+	<ui:define name="content">
+	
+				<div class="page-title">
+                    <h3><strong>#{cursoPortalAlumnoController.curso.descripcion} - #{cursoPortalAlumnoController.curso.pk.idcurso}</strong></h3>
+                </div>
+                
+                <p:growl autoUpdate="true" />
+                
+                <div id="main-wrapper">
+                    <div class="row">
+                        <h:form id="formRendirExamen">
+	                        <div class="col-md-12">
+	                            <div class="panel panel-white">
+	                                <div class="panel-heading" style="margin-bottom:5px;">
+	                                    <h4 class="panel-title">Examen Virtual 
+	                                    	N° #{examenVirtualController.examen.pk.idexamen} </h4>
+	                                    <div class="form-group text-right m-b-0">
+	                                    	<em><h:outputText value="Tiempo Restante " /></em>
+	                                    	<pe:timer timeout="#{examenVirtualController.segundos}" format="HH:mm:ss" 
+	                                    		style="margin-left:20px; font-size:14px; font-weight: bolder; color: #26A69A;"
+	                                    		listener="#{examenVirtualController.guardar()}" rendered="#{examenVirtualController.segundos != 0}" />
+	                                    	<em><h:outputText value="(Sin límite de tiempo)" rendered="#{examenVirtualController.segundos == 0}" /></em>
+											<mp:button value="Finalizar Examen" style="margin-left:50px;" />
+										</div>
+	                                </div>
+	                                <div class="panel-body">
+										<div role="tabpanel">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-pills" role="tablist">
+                                            	<ui:repeat var="var" value="#{examenVirtualController.listaPreguntas}" varStatus="s">
+                                            		<li role="presentation" class="#{s.index == 0 ? 'active' : ''}"><a href="#tab#{s.index + 1}" role="tab" data-toggle="tab" aria-expanded="#{s.index == 0 ? 'true' : 'false'}">#{s.index + 1}</a></li>
+                                            	</ui:repeat>
+                                            </ul>
+                                            <!-- Tab panes -->
+		                                    <div class="tab-content">
+		                                    	<ui:repeat var="var" value="#{examenVirtualController.listaPreguntas}" varStatus="s">
+		                                    		<div role="tabpanel" class="tab-pane fade #{s.index == 0 ? 'active in' : ''}" id="tab#{s.index + 1}">
+														<h1>Pregunta N° #{s.index + 1} - <small><em>puntaje #{var.puntaje}</em></small> </h1>
+														<h2 style="color:#26A69A;">#{examenVirtualController.obtenerPregunta(var.pk.idpregunta).descripcion}</h2>
+														<mp:radioButton>
+															<f:selectItems value="#{examenVirtualController.listarOpciones(var.pk.idcurso,var.pk.idpregunta)}"
+																var="opc" itemLabel="#{opc.descripcion}" itemValue="#{opc.esrespuesta}" />
+														</mp:radioButton>
+													</div>
+		                                    	</ui:repeat>
+											</div>
+                                        </div>
+									</div>
+	                            </div>
+	                        </div>
+	                	</h:form>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+	</ui:define>
+</ui:composition>

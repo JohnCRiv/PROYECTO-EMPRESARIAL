@@ -25,8 +25,10 @@
 	                                <div class="panel-heading" style="margin-bottom:5px;">
 	                                    <h4 class="panel-title">Examenes Virtuales : </h4>
 	                                    <div class="form-group text-right m-b-0">
-											<mp:button action="#{examenController.nuevo()}" value="Nuevo Exámen Virtual" style="margin-right:10px;" />
-											<mp:button action="#{examenController.nuevo()}" value="Gestionar Banco de Preguntas" />
+											<mp:button action="#{examenController.nuevo()}" value="Nuevo Exámen Virtual" style="margin-right:10px;" >
+												<f:setPropertyActionListener value="#{cursoPortalController.curso}" target="#{examenController.curso}" />
+											</mp:button>
+											<mp:button value="Gestionar Banco de Preguntas" />
 										</div>
 	                                </div>
 	                                <div class="panel-body">
@@ -40,10 +42,10 @@
                                             <!-- Tab panes -->
 		                                    <div class="tab-content">
 												<div role="tabpanel" class="tab-pane fade active in" id="tab1">
-													<p>Aún no existen examenes virtuales programados.</p>
+													<ui:include src="/pages/mis_cursos/docente/examenes_programados.xhtml" />
 												</div>
 												<div role="tabpanel" class="tab-pane fade" id="tab2">
-													<p>Aún no existen examenes virtuales en curso.</p>
+													<ui:include src="/pages/mis_cursos/docente/examenes_en_curso.xhtml" />
 												</div>
 												<div role="tabpanel" class="tab-pane fade" id="tab3">
 													<p>Aún no existen examenes virtuales concluídos.</p>

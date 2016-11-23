@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:mp="http://primefaces.org/ui/material">
+							    
+			    <p:growl autoUpdate="true" />
+    
+    			<div id="main-wrapper">
+                    <div class="row">
+                        <h:form id="formPreguntas">
+	                        <div class="col-md-12">
+	                            <div class="panel panel-white">
+	                                <div class="panel-heading">
+	                                    <h4 class="panel-title">Asignar Preguntas</h4>
+	                                </div>
+	                                <div class="panel-body">
+	                                	<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">
+	                                		Agregar Pregunta
+	                                	</button>
+										<ui:include src="/pages/examen/pregunta_selector.xhtml" />
+										
+	                                    <p:dataTable id="tblPreguntasExamen"
+	                                    	emptyMessage="No existen preguntas asignados a este exámen."
+	                                    	 scrollWidth="1050" style="margin-top:20px;"
+	                                    	value="#{examenController.listaPreguntasExamen}" var="var" >
+	                                    	<p:column headerText="ID PREGUNTA" width="100" >
+												<h:outputText value="#{var.idpregunta}" />
+											</p:column>
+											<p:column headerText="DESCRIPCIÓN" >
+												<h:outputText value="#{var.descripcion}" />
+											</p:column>
+											<p:column headerText="PUNTAJE" width="70" >
+												<mp:input value="#{var.puntaje}" />
+											</p:column>
+											<p:column headerText="" width="70" >
+												<p:panelGrid columns="1" style="border-spacing:0px;"
+													columnClasses="ui-grid-col-12"
+													layout="grid" styleClass="ui-panelgrid-blank">
+													<p:commandLink immediate="true" title="Eliminar" 
+														action="#{examenController.eliminarPregunta()}" 
+														update="formExamenMantenimiento:formPreguntas:tblPreguntasExamen">
+														<f:setPropertyActionListener value="#{var}" 
+															target="#{examenController.pregunta}" />
+														<h:graphicImage
+															value="/assets/images/eliminar.png" />
+														<p:confirm header="Confirmación" icon="fa fa-exclamation"
+															message="¿Está seguro de eliminar esta pregunta?" />
+													</p:commandLink>
+												</p:panelGrid>
+											</p:column>
+	                                    </p:dataTable>
+	                                </div>
+	                            </div>
+	                        </div>
+	                	</h:form>
+                    </div><!-- Row -->
+                </div><!-- Main Wrapper -->
+
+</ui:composition>

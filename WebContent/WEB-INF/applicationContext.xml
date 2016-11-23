@@ -10,7 +10,7 @@
 	<context:annotation-config />
 
 	<!-- Scan for all of Spring components such as Spring Service -->
-	<context:component-scan base-package="generico, dao, dao.impl, servicio, servicio.impl"></context:component-scan>
+	<context:component-scan base-package="generico, dao, dao.impl, servicio, servicio.impl, bean"></context:component-scan>
 
 	<!-- Necessary to get the entity manager injected into the factory bean -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
@@ -30,9 +30,8 @@
 	</bean>
 
 	<!-- Transaction Manager -->
-	<bean 
-	id="transactionManager" 
-	class="org.springframework.orm.jpa.JpaTransactionManager">
+	<bean  id="transactionManager" 
+		class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 

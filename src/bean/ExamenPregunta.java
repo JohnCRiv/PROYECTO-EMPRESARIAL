@@ -5,6 +5,7 @@ import bean.pk.ExamenPreguntaPK;
 public class ExamenPregunta {
 
 	private ExamenPreguntaPK pk;
+	private Integer puntaje;
 
 	// Auxiliaries
 	private Curso curso;
@@ -21,6 +22,14 @@ public class ExamenPregunta {
 
 	public void setPk(ExamenPreguntaPK pk) {
 		this.pk = pk;
+	}
+
+	public Integer getPuntaje() {
+		return puntaje;
+	}
+
+	public void setPuntaje(Integer puntaje) {
+		this.puntaje = puntaje;
 	}
 
 	public Curso getCurso() {
@@ -46,5 +55,5 @@ public class ExamenPregunta {
 	public void setPregunta(Pregunta pregunta) {
 		this.pregunta = pregunta;
 	}
-
+	
 }
