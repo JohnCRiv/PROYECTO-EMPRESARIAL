@@ -38,7 +38,8 @@
 					</mp:checkbox>
 					<p:spacer />
 					<p:calendar placeholder="Fecha de Inicio del exámen" value="#{examenController.examen.fechainicio}"
-						required="true" requiredMessage="Debe ingresar la fecha inicial del examen" />
+						required="true" requiredMessage="Debe ingresar la fecha inicial del examen" pattern="dd/MM/yy" 
+							mindate="#{examenController.currentDate}" />
 					<p:calendar placeholder="Fecha de Fin del exámen" rendered="#{examenController.conFechaFin}"
 						id="conFechaFin" value="#{examenController.examen.fechafin}"
 						required="true" requiredMessage="Debe ingresar la fecha fin del examen" />

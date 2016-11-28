@@ -12,7 +12,8 @@
 	<ui:define name="content">
 	
 				<div class="page-title">
-                    <h3><strong>#{cursoPortalAlumnoController.curso.descripcion} - #{cursoPortalAlumnoController.curso.pk.idcurso}</strong></h3>
+                    <h3><strong>Examen Virtual N° #{examenVirtualController.examen.pk.idexamen}</strong></h3>
+                    <h5><strong>#{examenVirtualController.examen.descripcion}</strong></h5>
                 </div>
                 
                 <p:growl autoUpdate="true" />
@@ -23,15 +24,16 @@
 	                        <div class="col-md-12">
 	                            <div class="panel panel-white">
 	                                <div class="panel-heading" style="margin-bottom:5px;">
-	                                    <h4 class="panel-title">Examen Virtual 
-	                                    	N° #{examenVirtualController.examen.pk.idexamen} </h4>
+	                                    <h4 class="panel-title">
+	                                    	Cuestionario
+	                                    </h4>
 	                                    <div class="form-group text-right m-b-0">
 	                                    	<em><h:outputText value="Tiempo Restante " /></em>
 	                                    	<pe:timer timeout="#{examenVirtualController.segundos}" format="HH:mm:ss" 
 	                                    		style="margin-left:20px; font-size:14px; font-weight: bolder; color: #26A69A;"
 	                                    		listener="#{examenVirtualController.guardar()}" rendered="#{examenVirtualController.segundos != 0}" />
 	                                    	<em><h:outputText value="(Sin límite de tiempo)" rendered="#{examenVirtualController.segundos == 0}" /></em>
-											<mp:button value="Finalizar Examen" style="margin-left:50px;" />
+											<mp:button action="#{examenVirtualController.guardar()}" value="Finalizar Examen" style="margin-left:50px;" />
 										</div>
 	                                </div>
 	                                <div class="panel-body">
@@ -39,7 +41,9 @@
                                             <!-- Nav tabs -->
                                             <ul class="nav nav-pills" role="tablist">
                                             	<ui:repeat var="var" value="#{examenVirtualController.listaPreguntas}" varStatus="s">
-                                            		<li role="presentation" class="#{s.index == 0 ? 'active' : ''}"><a href="#tab#{s.index + 1}" role="tab" data-toggle="tab" aria-expanded="#{s.index == 0 ? 'true' : 'false'}">#{s.index + 1}</a></li>
+                                            		<li role="presentation" class="#{s.index == 0 ? 'active' : ''}">
+                                            			<a href="#tab#{s.index + 1}" role="tab" data-toggle="tab" aria-expanded="#{s.index == 0 ? 'true' : 'false'}">#{s.index + 1}</a>
+                                            		</li>
                                             	</ui:repeat>
                                             </ul>
                                             <!-- Tab panes -->
@@ -48,9 +52,9 @@
 		                                    		<div role="tabpanel" class="tab-pane fade #{s.index == 0 ? 'active in' : ''}" id="tab#{s.index + 1}">
 														<h1>Pregunta N° #{s.index + 1} - <small><em>puntaje #{var.puntaje}</em></small> </h1>
 														<h2 style="color:#26A69A;">#{examenVirtualController.obtenerPregunta(var.pk.idpregunta).descripcion}</h2>
-														<mp:radioButton>
+														<mp:radioButton value="#{var.respuestaOpcion}">
 															<f:selectItems value="#{examenVirtualController.listarOpciones(var.pk.idcurso,var.pk.idpregunta)}"
-																var="opc" itemLabel="#{opc.descripcion}" itemValue="#{opc.esrespuesta}" />
+																var="opc" itemLabel="#{opc.descripcion}" itemValue="#{opc.pk.idopcion}" />
 														</mp:radioButton>
 													</div>
 		                                    	</ui:repeat>

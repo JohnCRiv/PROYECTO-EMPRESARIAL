@@ -1,10 +1,14 @@
 package controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import bean.Alumno;
+import bean.AlumnoExamen;
+import bean.AlumnoRespuesta;
 import bean.Curso;
 import bean.Examen;
 import bean.ExamenPregunta;
@@ -93,7 +97,35 @@ public class ExamenVirtualController extends BaseController implements GenericoC
 	
 	@Override
 	public String guardar() throws Exception {
-		enviarMensajeInformacion("", "El tiempo del examen ha terminado");
+		Alumno alumno = getAlumnoService().obtenerAlumnoPorDocumento(getUsuarioActual().getNumerodocumento());
+		AlumnoExamen alumnoexamen = new AlumnoExamen();
+		alumnoexamen.getPk().setIdalumno(alumno.getPk().getIdalumno());
+		alumnoexamen.getPk().setIdcurso(curso.getPk().getIdcurso());
+		alumnoexamen.getPk().setIdexamen(examen.getPk().getIdexamen());
+		alumnoexamen.setFecha(new Date());
+		getAlumnoExamenService().registrar(alumnoexamen);
+		
+		Integer puntaje = 0;
+		for (ExamenPregunta examenPregunta : listaPreguntas) {
+			AlumnoRespuesta alumnorespuesta = new AlumnoRespuesta();
+			alumnorespuesta.getPk().setIdalumno(alumno.getPk().getIdalumno());
+			alumnorespuesta.getPk().setIdcurso(curso.getPk().getIdcurso());
+			alumnorespuesta.getPk().setIdexamen(examen.getPk().getIdexamen());
+			alumnorespuesta.getPk().setIdpregunta(examenPregunta.getPk().getIdpregunta());
+			alumnorespuesta.getPk().setIdopcion(examenPregunta.getRespuestaOpcion());
+			List<PreguntaOpcion> opciones = this.listarOpciones(curso.getPk().getIdcurso(), examenPregunta.getPk().getIdpregunta());
+			for (PreguntaOpcion preguntaOpcion : opciones) {
+				if (examenPregunta.getRespuestaOpcion() == preguntaOpcion.getPk().getIdopcion() &&
+						preguntaOpcion.getEsrespuesta().equalsIgnoreCase("S")) {
+					puntaje += examenPregunta.getPuntaje();
+				}
+			}
+			System.out.println("PUNTAJE OBTENIDO : " + puntaje);
+			getAlumnoRespuestaService().registrar(alumnorespuesta);
+		}
+		
+		enviarMensajeExitoso("", "Se realizó correctamente el examen.");
+		
 		return "pretty:cursos_alumno";
 	}
 	

@@ -23,6 +23,7 @@
             <many-to-one name="pregunta">
             	<join-column name="idpregunta" referenced-column-name="idpregunta" insertable="false" updatable="false" />
             </many-to-one>
+            <transient name="respuestaOpcion" />
 		</attributes>
 	</entity>
 

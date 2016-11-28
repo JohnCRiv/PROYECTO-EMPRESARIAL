@@ -11,6 +11,8 @@ public class ExamenPregunta {
 	private Curso curso;
 	private Examen examen;
 	private Pregunta pregunta;
+	
+	private Integer respuestaOpcion;
 
 	public ExamenPregunta() {
 		pk = new ExamenPreguntaPK();
@@ -54,6 +56,14 @@ public class ExamenPregunta {
 
 	public void setPregunta(Pregunta pregunta) {
 		this.pregunta = pregunta;
+	}
+
+	public Integer getRespuestaOpcion() {
+		return respuestaOpcion;
+	}
+
+	public void setRespuestaOpcion(Integer respuestaOpcion) {
+		this.respuestaOpcion = respuestaOpcion;
 	}
 	
 }

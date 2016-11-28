@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -26,6 +27,7 @@ public class ExamenController extends BaseController implements GenericoControll
 	private DtoPregunta pregunta;
 	private List<Pregunta> listaPreguntas;
 	private Pregunta preguntaSeleccionada;
+	private Date currentDate;
 	
 	public ExamenController() {
 		pantallaMantenimiento = "pretty:examen_mantenimiento";
@@ -161,6 +163,7 @@ public class ExamenController extends BaseController implements GenericoControll
 		examen = new Examen();
 		listaPreguntasExamen = new ArrayList<>();
 		listaPreguntas = getPreguntaService().listarPreguntasPorCurso(curso);
+		currentDate = new Date();
 		return null;
 	}
 
@@ -226,6 +229,14 @@ public class ExamenController extends BaseController implements GenericoControll
 
 	public void setPreguntaSeleccionada(Pregunta preguntaSeleccionada) {
 		this.preguntaSeleccionada = preguntaSeleccionada;
+	}
+
+	public Date getCurrentDate() {
+		return currentDate;
+	}
+
+	public void setCurrentDate(Date currentDate) {
+		this.currentDate = currentDate;
 	}
 	
 }

@@ -83,62 +83,62 @@
 
 	// Picker object
 
-	var Datepicker = function(element, options){
-		this.dates = new DateArray();
-		this.viewDate = UTCToday();
-		this.focusDate = null;
-
-		this._process_options(options);
-
-		this.element = $(element);
-		this.isInline = false;
-		this.isInput = this.element.is('input');
-		this.component = this.element.is('.date') ? this.element.find('.add-on, .input-group-addon, .btn') : false;
-		this.hasInput = this.component && this.element.find('input').length;
-		if (this.component && this.component.length === 0)
-			this.component = false;
-
-		this.picker = $(DPGlobal.template);
-		this._buildEvents();
-		this._attachEvents();
-
-		if (this.isInline){
-			this.picker.addClass('datepicker-inline').appendTo(this.element);
-		}
-		else {
-			this.picker.addClass('datepicker-dropdown dropdown-menu');
-		}
-
-		if (this.o.rtl){
-			this.picker.addClass('datepicker-rtl');
-		}
-
-		this.viewMode = this.o.startView;
-
-		if (this.o.calendarWeeks)
-			this.picker.find('tfoot th.today, tfoot th.clear')
-						.attr('colspan', function(i, val){
-							return parseInt(val) + 1;
-						});
-
-		this._allow_update = false;
-
-		this.setStartDate(this._o.startDate);
-		this.setEndDate(this._o.endDate);
-		this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
-
-		this.fillDow();
-		this.fillMonths();
-
-		this._allow_update = true;
-
-		this.update();
-		this.showMode();
-
-		if (this.isInline){
-			this.show();
-		}
-	};
+//	var Datepicker = function(element, options){
+//		this.dates = new DateArray();
+//		this.viewDate = UTCToday();
+//		this.focusDate = null;
+//
+//		this._process_options(options);
+//
+//		this.element = $(element);
+//		this.isInline = false;
+//		this.isInput = this.element.is('input');
+//		this.component = this.element.is('.date') ? this.element.find('.add-on, .input-group-addon, .btn') : false;
+//		this.hasInput = this.component && this.element.find('input').length;
+//		if (this.component && this.component.length === 0)
+//			this.component = false;
+//
+//		this.picker = $(DPGlobal.template);
+//		this._buildEvents();
+//		this._attachEvents();
+//
+//		if (this.isInline){
+//			this.picker.addClass('datepicker-inline').appendTo(this.element);
+//		}
+//		else {
+//			this.picker.addClass('datepicker-dropdown dropdown-menu');
+//		}
+//
+//		if (this.o.rtl){
+//			this.picker.addClass('datepicker-rtl');
+//		}
+//
+//		this.viewMode = this.o.startView;
+//
+//		if (this.o.calendarWeeks)
+//			this.picker.find('tfoot th.today, tfoot th.clear')
+//						.attr('colspan', function(i, val){
+//							return parseInt(val) + 1;
+//						});
+//
+//		this._allow_update = false;
+//
+//		this.setStartDate(this._o.startDate);
+//		this.setEndDate(this._o.endDate);
+//		this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
+//
+//		this.fillDow();
+//		this.fillMonths();
+//
+//		this._allow_update = true;
+//
+//		this.update();
+//		this.showMode();
+//
+//		if (this.isInline){
+//			this.show();
+//		}
+//	};
 
 	Datepicker.prototype = {
 		constructor: Datepicker,
@@ -1428,13 +1428,13 @@
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
 		en: {
-			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-			today: "Today",
-			clear: "Clear"
+			days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+			daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
+			daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+			months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"],
+			monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"],
+			today: "Hoy",
+			clear: "Limpiar"
 		}
 	};
 

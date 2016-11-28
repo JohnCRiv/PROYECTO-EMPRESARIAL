@@ -2,15 +2,15 @@ package bean.pk;
 
 public class AlumnoExamenPK {
 
-	private Integer idalumno;
+	private String idalumno;
 	private Integer idcurso;
 	private Integer idexamen;
 
-	public Integer getIdalumno() {
+	public String getIdalumno() {
 		return idalumno;
 	}
 
-	public void setIdalumno(Integer idalumno) {
+	public void setIdalumno(String idalumno) {
 		this.idalumno = idalumno;
 	}
 
