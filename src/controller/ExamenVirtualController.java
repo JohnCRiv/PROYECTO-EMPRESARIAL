@@ -27,6 +27,7 @@ public class ExamenVirtualController extends BaseController implements GenericoC
 	private Curso curso;
 	private List<ExamenPregunta> listaPreguntas;
 	private Integer segundos;
+	private Integer puntajeObtenido;
 	
 	public ExamenVirtualController() throws Exception {
 		pantallaListado = "pretty:rendir_examen";
@@ -42,6 +43,7 @@ public class ExamenVirtualController extends BaseController implements GenericoC
 	public String inicializarDatosMantenimiento() throws Exception {
 		listaPreguntas = getExamenPreguntaService().listarPreguntas(
 				curso.getPk().getIdcurso(), examen.getPk().getIdexamen());
+		puntajeObtenido = 0;
 		if (!Validador.esNulo(examen.getDuracion()))
 			segundos = examen.getDuracion() * 60;
 		else
@@ -120,13 +122,14 @@ public class ExamenVirtualController extends BaseController implements GenericoC
 					puntaje += examenPregunta.getPuntaje();
 				}
 			}
-			System.out.println("PUNTAJE OBTENIDO : " + puntaje);
+			
 			getAlumnoRespuestaService().registrar(alumnorespuesta);
 		}
 		
+		puntajeObtenido = puntaje;
 		enviarMensajeExitoso("", "Se realizó correctamente el examen.");
 		
-		return "pretty:cursos_alumno";
+		return "pretty:examen_puntaje";
 	}
 	
 	@Override
@@ -177,6 +180,14 @@ public class ExamenVirtualController extends BaseController implements GenericoC
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+
+	public Integer getPuntajeObtenido() {
+		return puntajeObtenido;
+	}
+
+	public void setPuntajeObtenido(Integer puntajeObtenido) {
+		this.puntajeObtenido = puntajeObtenido;
 	}
 	
 }

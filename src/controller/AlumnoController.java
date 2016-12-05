@@ -11,6 +11,7 @@ import bean.Rol;
 import bean.Usuario;
 import generico.BaseController;
 import generico.GenericoController;
+import util.Validador;
 
 @ManagedBean
 @SessionScoped
@@ -55,6 +56,14 @@ public class AlumnoController extends BaseController implements GenericoControll
 	@Override
 	public String guardar() throws Exception {
 		if(accionSolicitada.equals(AccionSolicitada.NUEVO)) {
+			
+			Alumno alumnoAux = getAlumnoService().obtenerAlumnoPorDocumento(alumno.getNumerodocumento());
+			if (!Validador.esNulo(alumnoAux)) {
+				enviarMensajeError("", "El alumno con número de documento N° " + alumno.getNumerodocumento() + " ya "
+						+ "se encuentra registrado.");
+				return null;
+			}
+			
 			alumno.getPk().setIdalumno("ALU-" + alumno.getNumerodocumento());
 			getAlumnoService().registrar(alumno);
 			guardarUsuario();

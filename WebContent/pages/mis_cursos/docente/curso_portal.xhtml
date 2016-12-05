@@ -28,7 +28,10 @@
 											<mp:button action="#{examenController.nuevo()}" value="Nuevo Exámen Virtual" style="margin-right:10px;" >
 												<f:setPropertyActionListener value="#{cursoPortalController.curso}" target="#{examenController.curso}" />
 											</mp:button>
-											<mp:button value="Gestionar Banco de Preguntas" />
+											<mp:button value="Gestionar Banco de Preguntas" action="#{preguntaController.init()}" >
+												<f:setPropertyActionListener value="#{cursoPortalController.curso}" 
+													target="#{preguntaController.curso}" />
+											</mp:button>
 										</div>
 	                                </div>
 	                                <div class="panel-body">

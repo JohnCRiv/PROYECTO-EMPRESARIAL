@@ -31,6 +31,20 @@ public class CursoPortalAlumnoController extends BaseController implements Gener
 		inicializarDatosMantenimiento();
 		return pantallaListado;
 	}
+	
+	@Override
+	public String inicializarDatosMantenimiento() throws Exception {
+		listaExamenesPendientes = new ArrayList<>();
+		Alumno alumno = getAlumnoService().obtenerAlumnoPorDocumento(getUsuarioActual().getNumerodocumento());
+		listaCursoExamen = getCursoExamenService().listarExamenesPendientes(curso, alumno);
+		for (CursoExamen cursoExamen : listaCursoExamen) {
+			ExamenPK pk = new ExamenPK();
+			pk.setIdexamen(cursoExamen.getPk().getIdexamen());
+			Examen examen = getExamenService().buscar(pk);
+			listaExamenesPendientes.add(examen);
+		}
+		return null;
+	}
 
 	@Override
 	public String buscar() throws Exception {
@@ -89,20 +103,6 @@ public class CursoPortalAlumnoController extends BaseController implements Gener
 	@Override
 	public String inicializarFiltrosListado() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String inicializarDatosMantenimiento() throws Exception {
-		listaExamenesPendientes = new ArrayList<>();
-		Alumno alumno = getAlumnoService().obtenerAlumnoPorDocumento(getUsuarioActual().getNumerodocumento());
-		listaCursoExamen = getCursoExamenService().listarExamenesPendientes(curso, alumno);
-		for (CursoExamen cursoExamen : listaCursoExamen) {
-			ExamenPK pk = new ExamenPK();
-			pk.setIdexamen(cursoExamen.getPk().getIdexamen());
-			Examen examen = getExamenService().buscar(pk);
-			listaExamenesPendientes.add(examen);
-		}
 		return null;
 	}
 

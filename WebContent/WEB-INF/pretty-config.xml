@@ -123,5 +123,15 @@
 		<pattern value="/examen/virtual" />
 		<view-id value="/pages/examen/rendir_examen.xhtml" />
 	</url-mapping>
+	
+	<url-mapping id="examen_puntaje">
+		<pattern value="/examen/puntaje" />
+		<view-id value="/pages/examen/examen_puntaje.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="pregunta_listado">
+		<pattern value="/pregunta/listado" />
+		<view-id value="/pages/maestros/preguntas/pregunta_listado.xhtml" />
+	</url-mapping>
 
 </pretty-config>

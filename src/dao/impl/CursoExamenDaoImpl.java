@@ -6,13 +6,16 @@ import java.util.Date;
 import java.util.List;
 
 import bean.Alumno;
+import bean.AlumnoExamen;
 import bean.Curso;
 import bean.CursoExamen;
 import bean.Examen;
 import bean.pk.ExamenPK;
 import dao.CursoExamenDao;
 import generico.GenericoDaoImpl;
+import servicio.impl.AlumnoExamenServiceImpl;
 import servicio.impl.ExamenServiceImpl;
+import servicio.AlumnoExamenService;
 import servicio.ExamenService;
 import util.Parametro;
 import util.Validador;
@@ -20,6 +23,7 @@ import util.Validador;
 public class CursoExamenDaoImpl extends GenericoDaoImpl<CursoExamen> implements CursoExamenDao {
 	
 	private ExamenService examenService;
+	private AlumnoExamenService alumnoExamenService;
 
 	@Override
 	public List<CursoExamen> listarExamenesProgramados(Curso curso) {
@@ -69,10 +73,16 @@ public class CursoExamenDaoImpl extends GenericoDaoImpl<CursoExamen> implements 
 	@Override
 	public List<CursoExamen> listarExamenesPendientes(Curso curso, Alumno alumno) {
 		examenService = ExamenServiceImpl.getInstance();
+		alumnoExamenService = AlumnoExamenServiceImpl.getInstance();
 		
 		List<Parametro> parametros = Arrays.asList(new Parametro("idcurso", curso.getPk().getIdcurso()));
 		List<CursoExamen> listaCursoExamen = this.listarPorWhereQuery("entity.pk.idcurso = :idcurso", parametros);
 		List<CursoExamen> listaExamenesPendientes = new ArrayList<>();
+		
+		List<Parametro> parametros2 = Arrays.asList(new Parametro("idalumno", alumno.getPk().getIdalumno()));
+		List<AlumnoExamen> listaExamenAlumno = alumnoExamenService.listarPorWhereQuery("entity.pk.idalumno = :idalumno", parametros2);
+		
+		
 		for (CursoExamen cursoExamen : listaCursoExamen) {
 			ExamenPK pk = new ExamenPK();
 			pk.setIdexamen(cursoExamen.getPk().getIdexamen());
@@ -80,6 +90,17 @@ public class CursoExamenDaoImpl extends GenericoDaoImpl<CursoExamen> implements 
 			if (examen.getFechainicio().equals(new Date()) || 
 					examen.getFechainicio().before(new Date())) {
 				listaExamenesPendientes.add(cursoExamen);
+			}
+		}
+		
+		for (int i = 0; i < listaExamenesPendientes.size(); i++) {
+			CursoExamen cursoExamen = listaExamenesPendientes.get(i);
+			for (AlumnoExamen alumnoExamen : listaExamenAlumno) {
+				if (cursoExamen.getPk().getIdexamen().equals(alumnoExamen.getPk().getIdexamen())) {
+					listaExamenesPendientes.remove(cursoExamen);
+					i--;
+					break;
+				}
 			}
 		}
 		
